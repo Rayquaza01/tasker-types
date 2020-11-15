@@ -5,6 +5,15 @@
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "scripts": {},
+  "keywords": ["tasker", "typescript"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rayquaza01/tasker-types"
+  },
+  "bugs": {
+    "url": "https://github.com/Rayquaza01/tasker-types#issues"
+  },
+  "homepage": "https://github.com/Rayquaza01/tasker-types",
   "author": "Joe Jarvis",
   "license": "MIT",
   "dependencies": {}
