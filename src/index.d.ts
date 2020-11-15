@@ -30,7 +30,7 @@ export type tkCamera = 0 | 1;
 export interface TK {
     /**
      * Set alarm volume
-     * @param level Set the relevant system volume to *level*.
+     * @param level Set the relevant system volume to *level*. (0-7)
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
@@ -62,7 +62,7 @@ export interface TK {
 
     /**
      * Set media volume
-     * @param level Set the relevant system volume to *level*.
+     * @param level Set the relevant system volume to *level*. (0-15)
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
@@ -86,7 +86,7 @@ export interface TK {
 
     /**
      * Set ringer volume
-     * @param level Set the relevant system volume to *level*.
+     * @param level Set the relevant system volume to *level*. (0-7)
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
