@@ -1,5 +1,7 @@
+// Type Definitions for Tasker Javascipt(let)
 // https://tasker.joaoapps.com/userguide/en/javascript.html
 
+// Types for parameters that only accept certain constants
 export type tkAudioStream = "call" | "system" | "ringer" | "media" | "alarm" | "notification";
 export type tkAudioRecordSource = "def" | "mic" | "call" | "callout" | "callin";
 export type tkAudioRecordCodec = "amrn" | "amrw" | "aac";
@@ -24,6 +26,7 @@ export type tkSilentMode = "off" | "vibrate" | "on";
 export type tkStayOnMode = "never" | "ac" | "usb" | "any";
 export type tkCamera = 0 | 1;
 
+// Interface with type definitions for Tasker functions
 export interface TK {
     /**
      * Set alarm volume
@@ -1181,4 +1184,5 @@ export interface TK {
     zip(path: string, level: number, deleteOriginalAfter: boolean): boolean
 }
 
+// Associate tk var with TK interface defined above
 export declare const tk: TK;
