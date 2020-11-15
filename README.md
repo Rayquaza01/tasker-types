@@ -15,7 +15,7 @@ npm i --save tasker-types
 
 In a TypeScript file, import `tk` from tasker types. You now have type definitions and autocomplete in
 
-Example:
+[Example](https://www.typescriptlang.org/play?#code/JYWwDg9gTgLgBAbzjA1nAhgZ2VlBTKOAXzgDMoIQ4AiGXAgWhgE8w9NqBuAKG7s3xQAdCDwATYOgBqEADYAKAKwAaZFACueVTA14AlDz71hpWVgAWAGQgA7AObyAsuhjmhpiNCcu3UdDbFKeT04ACo4AEYABii9IRgIAGUdYHtgg15+QSE8AA9gGGDOIA):
 ```
 import { tk as tasker } from "tasker-types";
 
