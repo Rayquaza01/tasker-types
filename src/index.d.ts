@@ -235,7 +235,7 @@ export interface TK {
      * without displaying it.
      * @param sceneName Scene to create
      */
-    createScene(sceneName: boolean): boolean
+    createScene(sceneName: string): boolean
 
     /**
      * Crop an image in Tasker's image buffer previously loaded via loadImage.
