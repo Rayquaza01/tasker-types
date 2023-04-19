@@ -1,6 +1,6 @@
 {
   "name": "tasker-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Typescript definitions for Tasker functions",
   "main": "src/index.js",
   "types": "src/index.d.ts",
