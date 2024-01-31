@@ -96,7 +96,7 @@ declare function ringerVol(level: number, display: boolean, sound: boolean): boo
  *
  * The JavaScript does **not** wait for the audio recording to complete.
  *
- * See also: audioRecordStop().
+ * See also: {@link audioRecordStop}().
  * @param destPath where to put the recording. Note that a file extension is
  * not necessary, it will correspond to the selected *format*.
  * @param source one of **def**, **mic**, **call**, **callout** or **callin**
@@ -106,7 +106,7 @@ declare function ringerVol(level: number, display: boolean, sound: boolean): boo
 declare function audioRecord(destPath: string, source: tkAudioRecordSource, codec: tkAudioRecordCodec, format: tkAudioRecordFormat): boolean
 
 /**
- * Stop recording previously initiated by audioRecord().
+ * Stop recording previously initiated by {@link audioRecord}().
  */
 declare function audioRecordStop(): boolean
 
@@ -660,7 +660,7 @@ declare function mobileData(set: boolean): boolean
  * Skip back by *seconds* during playback of a music file previously started
  * by musicPlay.
  *
- * See also: musicSkip, musicStop
+ * See also: {@link musicSkip}, {@link musicStop}
  * @param seconds Seconds to skip back
  */
 declare function musicBack(seconds: number): boolean
@@ -673,7 +673,7 @@ declare function musicBack(seconds: number): boolean
  * The last 3 arguments may be ommitted, in which case they default to **0**,
  * **false** and **media** respectively.
  *
- * See also: musicStop, musicBack, musicSkip
+ * See also: {@link musicStop}, {@link musicBack}, {@link musicSkip}
  * @param path Path to music file
  * @param offsetSecs Seconds from beginning of file
  * @param loop Should audio loop
@@ -686,7 +686,7 @@ declare function musicPlay(path: string, offsetSecs?: number, loop?: boolean, st
  * Skip forwards by seconds during playback of a music file previously
  * started by musicPlay.
  *
- * See also: musicBack, musicStop
+ * See also: {@link musicBack}, {@link musicStop}
  * @param seconds Seconds to skip forward
  */
 declare function musicSkip(seconds: number): boolean
@@ -694,7 +694,7 @@ declare function musicSkip(seconds: number): boolean
 /**
  * Stop playback of a music file previously started by musicPlay.
  *
- * See also: musicBack, musicSkip
+ * See also: {@link musicBack}, {@link musicSkip}
  */
 declare function musicStop(): boolean
 
@@ -760,7 +760,7 @@ declare function readFile(path: string): string
  *
  * Requires a rooted device.
  *
- * See also: function shutdown
+ * See also: function {@link shutdown}
  * @param type one of **normal**, **recovery** or **bootloader**.
  * It can be ommitted and defaults to **normal**.
  */
@@ -860,7 +860,7 @@ declare function sendSMS(number: string, text: string, storeInMessagingApp: bool
  * var enabled = global( 'AIR' );
  * ```
  *
- * See also: function setAirplaneRadios
+ * See also: function {@link setAirplaneRadios}
  * @param setOn On or off
  */
 declare function setAirplaneMode(setOn: boolean): boolean
@@ -873,7 +873,7 @@ declare function setAirplaneMode(setOn: boolean): boolean
  * var radios = global( 'AIRR' );
  * ```
  *
- * See also: function setAirplaneMode
+ * See also: function {@link setAirplaneMode}
  * @param disableRadios a comma-separated list with radio names from the
  * following set: **cell**, **nfc**, **wifi**, **wimax**, **bt**.
  */
@@ -1025,7 +1025,7 @@ declare function showScene(
  *
  * Requires a rooted device.
  *
- * See also: reboot
+ * See also: {@link reboot}
  */
 declare function shutdown(): boolean
 
