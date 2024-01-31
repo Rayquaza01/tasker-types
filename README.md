@@ -29,7 +29,7 @@ audioRecord('/my/path/to/file.3gpp', 'mic', "aac", 'mp3')
 exit();
 ```
 
-Because Tasker functions are in the global scope, as long as this library is installed they will appear there. This also means that these files can be directly ran by tasker w/o removing any imported variables.\
+Because Tasker functions are in the global scope, as long as this library is installed they will appear there. This also means that these files can be directly ran by tasker w/o removing any imported variables.
 
 `mediaVol(5, true, true)` sets the media volume to 5, displays the new volume on screen and plays a sound.\
 `flashLong(Math.floor(Math.random() * 100).toString())` flashes a random number on the screen.\
