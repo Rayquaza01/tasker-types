@@ -536,10 +536,10 @@ declare function flashLong(message: string): void
  * ```js
  * var lastFix = global( 'LOC' );
  * if (
- * declare function getLocation( 'gps' ) &&
+     *     getLocation( 'gps' ) &&
  *     ( global( 'LOC' ) != lastFix )
  * ) {
- * declare function flash( "New fix: " + global( 'LOC' ) );
+     *     flash( "New fix: " + global( 'LOC' ) );
  * }
  * ```
  *
