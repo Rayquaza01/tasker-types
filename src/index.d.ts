@@ -27,456 +27,457 @@ export type tkStayOnMode = "never" | "ac" | "usb" | "any";
 export type tkCamera = 0 | 1;
 
 // We are using global declarations, because tasker function are not imported, and called without defining them
-/**
- * Set alarm volume
- * @param level Set the relevant system volume to *level*. (0-7)
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function alarmVol(level: number, display: boolean, sound: boolean): boolean
+declare global {
+    /**
+     * Set alarm volume
+     * @param level Set the relevant system volume to *level*. (0-7)
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function alarmVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set bluetooth voice volume
- * @param level Set the relevant system volume to *level*.
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function btVoiceVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set bluetooth voice volume
+     * @param level Set the relevant system volume to *level*.
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function btVoiceVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set call volume
- * @param level Set the relevant system volume to *level*.
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function callVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set call volume
+     * @param level Set the relevant system volume to *level*.
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function callVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set dtmf volume
- * @param level Set the relevant system volume to *level*.
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function dtmfVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set dtmf volume
+     * @param level Set the relevant system volume to *level*.
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function dtmfVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set media volume
- * @param level Set the relevant system volume to *level*. (0-15)
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function mediaVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set media volume
+     * @param level Set the relevant system volume to *level*. (0-15)
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function mediaVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set notification volume
- * @param level Set the relevant system volume to *level*.
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function notificationVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set notification volume
+     * @param level Set the relevant system volume to *level*.
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function notificationVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set system volume
- * @param level Set the relevant system volume to *level*.
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function systemVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set system volume
+     * @param level Set the relevant system volume to *level*.
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function systemVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Set ringer volume
- * @param level Set the relevant system volume to *level*. (0-7)
- * @param display If *display* is true, the new level will be flashed up on-screen.
- * @param sound If *sound* is true, a tone will sound at the new level.
- */
-declare function ringerVol(level: number, display: boolean, sound: boolean): boolean
+    /**
+     * Set ringer volume
+     * @param level Set the relevant system volume to *level*. (0-7)
+     * @param display If *display* is true, the new level will be flashed up on-screen.
+     * @param sound If *sound* is true, a tone will sound at the new level.
+     */
+    function ringerVol(level: number, display: boolean, sound: boolean): boolean
 
-/**
- * Records audio
- *
- * The JavaScript does **not** wait for the audio recording to complete.
- *
- * See also: {@link audioRecordStop}().
- * @param destPath where to put the recording. Note that a file extension is
- * not necessary, it will correspond to the selected *format*.
- * @param source one of **def**, **mic**, **call**, **callout** or **callin**
- * @param codec one of **amrn**, **amrw** or **aac**
- * @param format one of **mp4**, **3gpp**, **amrn** or **amrw**
- */
-declare function audioRecord(destPath: string, source: tkAudioRecordSource, codec: tkAudioRecordCodec, format: tkAudioRecordFormat): boolean
+    /**
+     * Records audio
+     *
+     * The JavaScript does **not** wait for the audio recording to complete.
+     *
+     * See also: {@link audioRecordStop}().
+     * @param destPath where to put the recording. Note that a file extension is
+     * not necessary, it will correspond to the selected *format*.
+     * @param source one of **def**, **mic**, **call**, **callout** or **callin**
+     * @param codec one of **amrn**, **amrw** or **aac**
+     * @param format one of **mp4**, **3gpp**, **amrn** or **amrw**
+     */
+    function audioRecord(destPath: string, source: tkAudioRecordSource, codec: tkAudioRecordCodec, format: tkAudioRecordFormat): boolean
 
-/**
- * Stop recording previously initiated by {@link audioRecord}().
- */
-declare function audioRecordStop(): boolean
+    /**
+     * Stop recording previously initiated by {@link audioRecord}().
+     */
+    function audioRecordStop(): boolean
 
-/**
- * Open the default browser at the specifed URL.
- * @param url URL to open
- */
-declare function browseURL(url: string): boolean
+    /**
+     * Open the default browser at the specifed URL.
+     * @param url URL to open
+     */
+    function browseURL(url: string): boolean
 
-/**
- * Simulate a press of the named button.
- *
- * This function requires a rooted device.
- * @param name must be one of **back**, **call**, **camera**, **endcall**,
- * **menu**, **volup**, **voldown** or **search**.
- */
-declare function button(name: tkButtonNames): boolean
+    /**
+     * Simulate a press of the named button.
+     *
+     * This function requires a rooted device.
+     * @param name must be one of **back**, **call**, **camera**, **endcall**,
+     * **menu**, **volup**, **voldown** or **search**.
+     */
+    function button(name: tkButtonNames): boolean
 
-/**
- * Make a phone call
- * @param num The phone number to call
- * @param autodial If *autoDial* is **false**, the phone app will be brought
- * up with the number pre-inserted, if **true** the number will also be dialed.
- */
-declare function call(num: string, autodial: boolean): boolean
+    /**
+     * Make a phone call
+     * @param num The phone number to call
+     * @param autodial If *autoDial* is **false**, the phone app will be brought
+     * up with the number pre-inserted, if **true** the number will also be dialed.
+     */
+    function call(num: string, autodial: boolean): boolean
 
-/**
- * Block **outgoing** calls
- * [matching](https://tasker.joaoapps.com/userguide/en/matching.html) *numMatch*.
- * @param numMatch Pattern to block
- * @param showInfo If showInfo is set, Tasker will flash a message when a call is blocked.
- */
-declare function callBlock(numMatch: string, showInfo: boolean): boolean
+    /**
+     * Block **outgoing** calls
+     * [matching](https://tasker.joaoapps.com/userguide/en/matching.html) *numMatch*.
+     * @param numMatch Pattern to block
+     * @param showInfo If showInfo is set, Tasker will flash a message when a call is blocked.
+     */
+    function callBlock(numMatch: string, showInfo: boolean): boolean
 
-/**
- * Divert **outgoing** calls
- * [matching](https://tasker.joaoapps.com/userguide/en/matching.html)
- * *fromMatch* to the number *to*.
- * @param fromMatch Pattern to match outgoing calls
- * @param to Number to divert to
- * @param showInfo If *showInfo* is set, Tasker will flash a message when a call is diverted.
- */
-declare function callDivert(fromMatch: string, to: string, showInfo: boolean): boolean
+    /**
+     * Divert **outgoing** calls
+     * [matching](https://tasker.joaoapps.com/userguide/en/matching.html)
+     * *fromMatch* to the number *to*.
+     * @param fromMatch Pattern to match outgoing calls
+     * @param to Number to divert to
+     * @param showInfo If *showInfo* is set, Tasker will flash a message when a call is diverted.
+     */
+    function callDivert(fromMatch: string, to: string, showInfo: boolean): boolean
 
-/**
- * Stop blocking or diverting outgoing calls previously specified with
- * callBlock or callDivert.
- * @param numMatch Pattern to stop blocking/diverting
- */
-declare function callRevert(numMatch: string): boolean
+    /**
+     * Stop blocking or diverting outgoing calls previously specified with
+     * callBlock or callDivert.
+     * @param numMatch Pattern to stop blocking/diverting
+     */
+    function callRevert(numMatch: string): boolean
 
-/**
- * Turn on or off Android Car Mode.
- * @param onFlag On or off
- */
-declare function carMode(onFlag: boolean): boolean
+    /**
+     * Turn on or off Android Car Mode.
+     * @param onFlag On or off
+     */
+    function carMode(onFlag: boolean): boolean
 
-/**
- * Clear the passphrase for the specified *keyName*.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide.
- * @param keyName key to clear
- */
-declare function clearKey(keyName: string): boolean
+    /**
+     * Clear the passphrase for the specified *keyName*.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide.
+     * @param keyName key to clear
+     */
+    function clearKey(keyName: string): boolean
 
-/**
- * Show an email composition dialog with any specified fields pre-filled.
- *
- * The JavaScript does **not** wait for the email to be sent before continuing.
- * @param to To field
- * @param subject Subject field
- * @param message Message body
- */
-declare function composeEmail(to: string, subject: string, message: string): boolean
+    /**
+     * Show an email composition dialog with any specified fields pre-filled.
+     *
+     * The JavaScript does **not** wait for the email to be sent before continuing.
+     * @param to To field
+     * @param subject Subject field
+     * @param message Message body
+     */
+    function composeEmail(to: string, subject: string, message: string): boolean
 
-/**
- * Show an MMS composition dialog with any specified fields pre-filled.
- *
- * The JavaScript does **not** wait for the MMS to be sent before continuing.
- * @param to MMS To Field
- * @param subject MMS Subject Field
- * @param message MMS Body
- * @param attachmentPath Path to attachment
- */
-declare function composeMMS(to: string, subject: string, message: string, attachmentPath: string): boolean
+    /**
+     * Show an MMS composition dialog with any specified fields pre-filled.
+     *
+     * The JavaScript does **not** wait for the MMS to be sent before continuing.
+     * @param to MMS To Field
+     * @param subject MMS Subject Field
+     * @param message MMS Body
+     * @param attachmentPath Path to attachment
+     */
+    function composeMMS(to: string, subject: string, message: string, attachmentPath: string): boolean
 
-/**
- * Show an SMS composition dialog with any specified fields pre-filled.
- *
- * The JavaScript does **not** wait for the SMS to be sent before continuing.
- * @param to SMS To Field
- * @param message SMS Body
- */
-declare function composeSMS(to: string, message: string): boolean
+    /**
+     * Show an SMS composition dialog with any specified fields pre-filled.
+     *
+     * The JavaScript does **not** wait for the SMS to be sent before continuing.
+     * @param to SMS To Field
+     * @param message SMS Body
+     */
+    function composeSMS(to: string, message: string): boolean
 
-/**
- * Convert from one type of value to another.
- *
- * See also: action [Variable Convert](https://tasker.joaoapps.com/userguide/en/help/ah_convert_variable.html).
- * @param val Value to convert
- * @param conversionType must be one of the string constants: **byteToKbyte**,
- * **byteToMbyte**, **byteToGbyte**, **datetimeToSec**, **secToDatetime**,
- * **secToDatetimeM**, **secToDatetimeL**, **htmlToText**, **celsToFahr**,
- * **fahrToCels**, **inchToCent**, **metreToFeet**, **feetToMetre**, **kgToPound**,
- * **poundToKg**, **kmToMile**, **mileToKm**, **urlDecode**, **urlEncode**,
- * **binToDec**, **decToBin**, **hexToDec**, **decToHex**, **base64encode**,
- * **base64decode**, **toMd5**, **toSha1**, **toLowerCase**, **toUpperCase**,
- * **toUpperCaseFirst**.
- */
-declare function convert(val: string, conversionType: tkConversionType): string
+    /**
+     * Convert from one type of value to another.
+     *
+     * See also: action [Variable Convert](https://tasker.joaoapps.com/userguide/en/help/ah_convert_variable.html).
+     * @param val Value to convert
+     * @param conversionType must be one of the string constants: **byteToKbyte**,
+     * **byteToMbyte**, **byteToGbyte**, **datetimeToSec**, **secToDatetime**,
+     * **secToDatetimeM**, **secToDatetimeL**, **htmlToText**, **celsToFahr**,
+     * **fahrToCels**, **inchToCent**, **metreToFeet**, **feetToMetre**, **kgToPound**,
+     * **poundToKg**, **kmToMile**, **mileToKm**, **urlDecode**, **urlEncode**,
+     * **binToDec**, **decToBin**, **hexToDec**, **decToHex**, **base64encode**,
+     * **base64decode**, **toMd5**, **toSha1**, **toLowerCase**, **toUpperCase**,
+     * **toUpperCaseFirst**.
+     */
+    function convert(val: string, conversionType: tkConversionType): string
 
-/**
- * Create a directory
- * @param dirPath Create the named *dirPath*.
- * @param createParent If *createParent* is specified and any parent
- * directory does not exist, it will also be created.
- * @param useRoot If *useRoot* is specified, the operation will be performed
- * as the root user (where available).
- */
-declare function createDir(dirPath: string, createParent: boolean, useRoot: boolean): boolean
+    /**
+     * Create a directory
+     * @param dirPath Create the named *dirPath*.
+     * @param createParent If *createParent* is specified and any parent
+     * directory does not exist, it will also be created.
+     * @param useRoot If *useRoot* is specified, the operation will be performed
+     * as the root user (where available).
+     */
+    function createDir(dirPath: string, createParent: boolean, useRoot: boolean): boolean
 
-/**
- * Create the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * without displaying it.
- * @param sceneName Scene to create
- */
-declare function createScene(sceneName: string): boolean
+    /**
+     * Create the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * without displaying it.
+     * @param sceneName Scene to create
+     */
+    function createScene(sceneName: string): boolean
 
-/**
- * Crop an image in Tasker's image buffer previously loaded via loadImage.
- * @param fromLeftPercent Percentage from left to crop
- * @param fromRightPercent Percentage from right to crop
- * @param fromTopPercent Percentage from top to crop
- * @param fromBottomPercent Percentage from bottom to crop
- */
-declare function cropImage(fromLeftPercent: number, fromRightPercent: number, fromTopPercent: number, fromBottomPercent: number): boolean
+    /**
+     * Crop an image in Tasker's image buffer previously loaded via loadImage.
+     * @param fromLeftPercent Percentage from left to crop
+     * @param fromRightPercent Percentage from right to crop
+     * @param fromTopPercent Percentage from top to crop
+     * @param fromBottomPercent Percentage from bottom to crop
+     */
+    function cropImage(fromLeftPercent: number, fromRightPercent: number, fromTopPercent: number, fromBottomPercent: number): boolean
 
-/**
- * As decryptFile(), but decrypts each file in the specified directory in turn.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide,
- * [Decrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_decrypt_file.html)
- * action.
- * @param path Directory to decrypt
- * @param key Encryption key
- * @param removeKey If *removeKey* is not set, the entered passphrase will
- * be reapplied automatically to the next encryption/decryption operation with
- * the specified *keyName*.
- */
-declare function decryptDir(path: string, key: string, removeKey: boolean): boolean
+    /**
+     * As decryptFile(), but decrypts each file in the specified directory in turn.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide,
+     * [Decrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_decrypt_file.html)
+     * action.
+     * @param path Directory to decrypt
+     * @param key Encryption key
+     * @param removeKey If *removeKey* is not set, the entered passphrase will
+     * be reapplied automatically to the next encryption/decryption operation with
+     * the specified *keyName*.
+     */
+    function decryptDir(path: string, key: string, removeKey: boolean): boolean
 
-/**
- * Decrypt the specified file using the encryption parameters specified in
- * `Menu / Prefs / Action`.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide,
- * [Decrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_decrypt_file.html)
- * action.
- * @param path Path of file
- * @param key Encryption key
- * @param removeKey If *removeKey* is not set, the entered passphrase will
- * be reapplied automatically to the next encryption/decryption operation
- * with the specified *keyName*.
- */
-declare function decryptFile(path: string, key: string, removeKey: boolean): boolean
+    /**
+     * Decrypt the specified file using the encryption parameters specified in
+     * `Menu / Prefs / Action`.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide,
+     * [Decrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_decrypt_file.html)
+     * action.
+     * @param path Path of file
+     * @param key Encryption key
+     * @param removeKey If *removeKey* is not set, the entered passphrase will
+     * be reapplied automatically to the next encryption/decryption operation
+     * with the specified *keyName*.
+     */
+    function decryptFile(path: string, key: string, removeKey: boolean): boolean
 
-/**
- * Delete a directory
- * @param dirPath Path of directory to delete
- * @param recurse Delete recursively (if *dirPath* is not empty)
- * @param useRoot If *useRoot* is specified, the operation will be performed
- * as the root user (where available).
- */
-declare function deleteDir(dirPath: string, recurse: boolean, useRoot: boolean): boolean
+    /**
+     * Delete a directory
+     * @param dirPath Path of directory to delete
+     * @param recurse Delete recursively (if *dirPath* is not empty)
+     * @param useRoot If *useRoot* is specified, the operation will be performed
+     * as the root user (where available).
+     */
+    function deleteDir(dirPath: string, recurse: boolean, useRoot: boolean): boolean
 
-/**
- * Delete a file
- *
- * See also: action [Delete File](https://tasker.joaoapps.com/userguide/en/help/ah_delete_file.html)
- * @param filePath Path of file to delete
- * @param shredTimes Range 0-10
- * @param useRoot If *useRoot* is specified, the operation will be performed
- * as the root user (where available).
- */
-declare function deleteFile(filePath: string, shredTimes: number, useRoot: boolean): boolean
+    /**
+     * Delete a file
+     *
+     * See also: action [Delete File](https://tasker.joaoapps.com/userguide/en/help/ah_delete_file.html)
+     * @param filePath Path of file to delete
+     * @param shredTimes Range 0-10
+     * @param useRoot If *useRoot* is specified, the operation will be performed
+     * as the root user (where available).
+     */
+    function deleteFile(filePath: string, shredTimes: number, useRoot: boolean): boolean
 
-/**
- * Hide the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * if it's visible, then destroy it.
- * @param sceneName Scene name
- */
-declare function destroyScene(sceneName: string): boolean
+    /**
+     * Hide the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * if it's visible, then destroy it.
+     * @param sceneName Scene name
+     */
+    function destroyScene(sceneName: string): boolean
 
-/**
- * Whether the display brightness should automatically adjust to the ambient
- * light or not.
- * @param onFlag On or off
- */
-declare function displayAutoBright(onFlag: boolean): boolean
+    /**
+     * Whether the display brightness should automatically adjust to the ambient
+     * light or not.
+     * @param onFlag On or off
+     */
+    function displayAutoBright(onFlag: boolean): boolean
 
-/**
- * Whether the display orientation should change based on the physical
- * orientation of the device.
- * @param onFlag On or off
- */
-declare function displayAutoRotate(onFlag: boolean): boolean
+    /**
+     * Whether the display orientation should change based on the physical
+     * orientation of the device.
+     * @param onFlag On or off
+     */
+    function displayAutoRotate(onFlag: boolean): boolean
 
-/**
- * How long the period of no-activity should be before the display is turned off.
- * @param hours Hours of inactivity
- * @param minutes Minutes of inactivity
- * @param seconds Seconds of inactivity
- */
-declare function displayTimeout(hours: number, minutes: number, seconds: number): boolean
+    /**
+     * How long the period of no-activity should be before the display is turned off.
+     * @param hours Hours of inactivity
+     * @param minutes Minutes of inactivity
+     * @param seconds Seconds of inactivity
+     */
+    function displayTimeout(hours: number, minutes: number, seconds: number): boolean
 
-/**
- * Simulate a movement or press of the hardware dpad (or trackball).
- *
- * This function requires a rooted device.
- * @param direction must be one of **up**, **down**, **left**, **right** or **press**.
- * @param noRepeats
- */
-declare function dpad(direction: tkDirection, noRepeats: number): boolean
+    /**
+     * Simulate a movement or press of the hardware dpad (or trackball).
+     *
+     * This function requires a rooted device.
+     * @param direction must be one of **up**, **down**, **left**, **right** or **press**.
+     * @param noRepeats
+     */
+    function dpad(direction: tkDirection, noRepeats: number): boolean
 
-/**
- * Enable or disable the named Tasker profile.
- * @param name Profile name
- * @param enable Enable or disable
- */
-declare function enableProfile(name: string, enable: boolean): boolean
+    /**
+     * Enable or disable the named Tasker profile.
+     * @param name Profile name
+     * @param enable Enable or disable
+     */
+    function enableProfile(name: string, enable: boolean): boolean
 
-/**
- * As encryptFile(), but encrypts each file in the specified directory in turn.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide, [Encrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_encrypt_file.html)
- * action.
- * @param path Path to encrypt
- * @param keyName Encryption key
- * @param rememberKey If *rememberKey* is set, the entered passphrase will
- * be reapplied automatically to the next encryption/decryption operation
- * with the specified *keyName*.
- * @param shredOriginal If *shredOriginal* is specified, the original
- * file will be overwritten several times with random bits if encryption is successful.
- */
-declare function encryptDir(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
+    /**
+     * As encryptFile(), but encrypts each file in the specified directory in turn.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide, [Encrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_encrypt_file.html)
+     * action.
+     * @param path Path to encrypt
+     * @param keyName Encryption key
+     * @param rememberKey If *rememberKey* is set, the entered passphrase will
+     * be reapplied automatically to the next encryption/decryption operation
+     * with the specified *keyName*.
+     * @param shredOriginal If *shredOriginal* is specified, the original
+     * file will be overwritten several times with random bits if encryption is successful.
+     */
+    function encryptDir(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
 
-/**
- * Set the background [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
- * of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * element.
- *
- * See also: action [Element Back Colour](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_background_colour.html).
- * @param scene Scene name
- * @param element Element name
- * @param startColour Background colour
- * @param endColour End Colour is only relevant if the element's background
- * has a Shader specified.
- */
-declare function elemBackColour(scene: string, element: string, startColour: string, endColour: string): boolean
+    /**
+     * Set the background [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
+     * of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * element.
+     *
+     * See also: action [Element Back Colour](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_background_colour.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param startColour Background colour
+     * @param endColour End Colour is only relevant if the element's background
+     * has a Shader specified.
+     */
+    function elemBackColour(scene: string, element: string, startColour: string, endColour: string): boolean
 
-/**
- * Set the border [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
- * and width of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
- * @param scene Scene name
- * @param element Element name
- * @param width Border width
- * @param colour Border colour
- */
-declare function elemBorder(scene: string, element: string, width: number, colour: string): boolean
+    /**
+     * Set the border [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
+     * and width of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
+     * @param scene Scene name
+     * @param element Element name
+     * @param width Border width
+     * @param colour Border colour
+     */
+    function elemBorder(scene: string, element: string, width: number, colour: string): boolean
 
-/**
- * Move an element within it's scene.
- *
- * See also: action [Element Position](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_position.html).
- * @param scene Scene name
- * @param element Element name
- * @param orientation Must be one of **port** or **land**
- * @param x X position
- * @param y Y position
- * @param animMS indicates the duration of the corresponding animation in MS.
- * A zero-value indicates no animation.
- */
-declare function elemPosition(scene: string, element: string, orientation: tkOrientation, x: number, y: number, animMS: number): boolean
+    /**
+     * Move an element within it's scene.
+     *
+     * See also: action [Element Position](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_position.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param orientation Must be one of **port** or **land**
+     * @param x X position
+     * @param y Y position
+     * @param animMS indicates the duration of the corresponding animation in MS.
+     * A zero-value indicates no animation.
+     */
+    function elemPosition(scene: string, element: string, orientation: tkOrientation, x: number, y: number, animMS: number): boolean
 
-/**
- * Set the text of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
- *
- * See also: action [Element Text](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_text.html).
- * @param scene Scene name
- * @param element Element name
- * @param position must be one of **repl** (replace existing text
- * completely), **start** (insert before existing text) or **end**
- * (append after existing text).
- * @param text Text to set
- */
-declare function elemText(scene: string, element: string, position: tkTextReplace, text: string): boolean
+    /**
+     * Set the text of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
+     *
+     * See also: action [Element Text](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_text.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param position must be one of **repl** (replace existing text
+     * completely), **start** (insert before existing text) or **end**
+     * (append after existing text).
+     * @param text Text to set
+     */
+    function elemText(scene: string, element: string, position: tkTextReplace, text: string): boolean
 
-/**
- * Set the text [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
- * of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
- *
- * See also: action [Element Text Colour](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_text_colour.html).
- * @param scene Scene name
- * @param element Element name
- * @param colour Text colour
- */
-declare function elemTextColour(scene: string, element: string, colour: string): boolean
+    /**
+     * Set the text [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
+     * of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
+     *
+     * See also: action [Element Text Colour](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_text_colour.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param colour Text colour
+     */
+    function elemTextColour(scene: string, element: string, colour: string): boolean
 
-/**
- * Set the text size of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
- *
- * See also: action [Element Text Size](https://tasker.joaoapps.com/userguide/en/help/scene_element_text_size.html).
- * @param scene Scene name
- * @param element Element name
- * @param size Text size
- */
-declare function elemTextSize(scene: string, element: string, size: number): boolean
+    /**
+     * Set the text size of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
+     *
+     * See also: action [Element Text Size](https://tasker.joaoapps.com/userguide/en/help/scene_element_text_size.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param size Text size
+     */
+    function elemTextSize(scene: string, element: string, size: number): boolean
 
-/**
- * Make the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element
- * visible or invisible.
- *
- * See also: action [Element Visibility](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_visibility.html).
- * @param scene Scene name
- * @param element Element name
- * @param visible Show or hide
- * @param animationTimeMS Animation length (ms)
- */
-declare function elemVisibility(scene: string, element: string, visible: boolean, animationTimeMS: number): boolean
+    /**
+     * Make the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element
+     * visible or invisible.
+     *
+     * See also: action [Element Visibility](https://tasker.joaoapps.com/userguide/en/help/ah_scene_element_visibility.html).
+     * @param scene Scene name
+     * @param element Element name
+     * @param visible Show or hide
+     * @param animationTimeMS Animation length (ms)
+     */
+    function elemVisibility(scene: string, element: string, visible: boolean, animationTimeMS: number): boolean
 
-/**
- * Terminate the current call (if there is one).
- */
-declare function endCall(): boolean
+    /**
+     * Terminate the current call (if there is one).
+     */
+    function endCall(): boolean
 
-/**
- * Encrypt the specified file using the encryption parameters specified in `Menu / Prefs / Action`.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide, [Encrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_encrypt_file.html)
- * action.
- * @param path File to encrypt
- * @param keyName Encryption key
- * @param rememberKey If *rememberKey* is set, the entered passphrase will be
- * reapplied automatically to the next encryption/decryption operation with
- * the specified *keyName*.
- * @param shredOriginal If *shredOriginal* is specified, the original file
- * will be overwritten several times with random bits if encryption is
- * successful.
- */
-declare function encryptFile(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
+    /**
+     * Encrypt the specified file using the encryption parameters specified in `Menu / Prefs / Action`.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide, [Encrypt File](https://tasker.joaoapps.com/userguide/en/help/ah_encrypt_file.html)
+     * action.
+     * @param path File to encrypt
+     * @param keyName Encryption key
+     * @param rememberKey If *rememberKey* is set, the entered passphrase will be
+     * reapplied automatically to the next encryption/decryption operation with
+     * the specified *keyName*.
+     * @param shredOriginal If *shredOriginal* is specified, the original file
+     * will be overwritten several times with random bits if encryption is
+     * successful.
+     */
+    function encryptFile(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
 
-/**
- * Show a dialog to enter the passphrase for the specified *keyName*.
- *
- * The JavaScript waits until the dialog has been dismissed or *timeoutSecs* reached.
- * @param title Title
- * @param keyName Name of key
- * @param showOverKeyguard Show scene over keyguard
- * @param confirm if set, the passphrase must be entered twice to ensure it is correct.
- * @param background [optional] a file path or file URI to a background image.
- * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * to use in place of the built-in scene.
- * @param timeoutSecs Time (seconds) to wait before ending
- */
-declare function enterKey(
+    /**
+     * Show a dialog to enter the passphrase for the specified *keyName*.
+     *
+     * The JavaScript waits until the dialog has been dismissed or *timeoutSecs* reached.
+     * @param title Title
+     * @param keyName Name of key
+     * @param showOverKeyguard Show scene over keyguard
+     * @param confirm if set, the passphrase must be entered twice to ensure it is correct.
+     * @param background [optional] a file path or file URI to a background image.
+     * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * to use in place of the built-in scene.
+     * @param timeoutSecs Time (seconds) to wait before ending
+     */
+    function enterKey(
         title: string,
         keyName: string,
         showOverKeyguard: boolean,
@@ -487,135 +488,135 @@ declare function enterKey(
     ): boolean
 
 
-/**
- * Filter an image previously loaded into Tasker's image buffer via loadImage()
- * @param mode Possible values of *mode* are:
- *  * **bw**: convert to black & white, using *value* as a threshold
- *  * **eblue**: enhance blue values by *value*
- *  * **egreen**: enhance green values by *value*
- *  * **ered**: enhance red values by *value*
- *  * **grey**: convert to greyscale, *value* is unused
- *  * **alpha**: set pixel alpha (opposite of transparency) to *value*
- * @param value should be 1-254
- */
-declare function filterImage(mode: tkColourFilter, value: number): boolean
+    /**
+     * Filter an image previously loaded into Tasker's image buffer via loadImage()
+     * @param mode Possible values of *mode* are:
+     *  * **bw**: convert to black & white, using *value* as a threshold
+     *  * **eblue**: enhance blue values by *value*
+     *  * **egreen**: enhance green values by *value*
+     *  * **ered**: enhance red values by *value*
+     *  * **grey**: convert to greyscale, *value* is unused
+     *  * **alpha**: set pixel alpha (opposite of transparency) to *value*
+     * @param value should be 1-254
+     */
+    function filterImage(mode: tkColourFilter, value: number): boolean
 
-/**
- * Flip an image previously loaded into Tasker's image buffer via loadImage()
- * @param horizontal If *horizontal* is false, the image is flipped vertically.
- */
-declare function flipImage(horizontal: boolean): boolean
+    /**
+     * Flip an image previously loaded into Tasker's image buffer via loadImage()
+     * @param horizontal If *horizontal* is false, the image is flipped vertically.
+     */
+    function flipImage(horizontal: boolean): boolean
 
-/**
- * Stop execution of the JavaScript.
- */
-declare function exit(): void
+    /**
+     * Stop execution of the JavaScript.
+     */
+    function exit(): void
 
-/**
- * Flash a short-duration Android 'Toast' message.
- * @param message Message to display in toast
- */
-declare function flash(message: string): void
+    /**
+     * Flash a short-duration Android 'Toast' message.
+     * @param message Message to display in toast
+     */
+    function flash(message: string): void
 
-/**
- * Flash a long-duration Android 'Toast' message.
- * @param message Message to display in toast
- */
-declare function flashLong(message: string): void
+    /**
+     * Flash a long-duration Android 'Toast' message.
+     * @param message Message to display in toast
+     */
+    function flashLong(message: string): void
 
-/**
- * Try to get a fix of the current device location.
- *
- * Fix coordinates are stored in the global Tasker variables %**LOC** (GPS)
- * and/or %**LOCN** (Net). The value can be retrieved with the global
- * function. Several other parameters of the fix are also available,
- * see [Variables](https://tasker.joaoapps.com/userguide/en/variables.html).
- *
- * Example:
- *
- * ```js
- * var lastFix = global( 'LOC' );
- * if (
+    /**
+     * Try to get a fix of the current device location.
+     *
+     * Fix coordinates are stored in the global Tasker variables %**LOC** (GPS)
+     * and/or %**LOCN** (Net). The value can be retrieved with the global
+     * function. Several other parameters of the fix are also available,
+     * see [Variables](https://tasker.joaoapps.com/userguide/en/variables.html).
+     *
+     * Example:
+     *
+     * ```js
+     * var lastFix = global( 'LOC' );
+     * if (
      *     getLocation( 'gps' ) &&
- *     ( global( 'LOC' ) != lastFix )
- * ) {
+     *     ( global( 'LOC' ) != lastFix )
+     * ) {
      *     flash( "New fix: " + global( 'LOC' ) );
- * }
- * ```
- *
- * See also: action [Get Location](https://tasker.joaoapps.com/userguide/en/help/ah_get_fix.html),
- * function stopLocation.
- * @param source must be one of **gps**, **net** or **any**.
- * @param keepTracking If *keepTracking* is set, the specified source(s)
- * will be left tracking with the purpose of providing a much quicker fix
- * next time the function is called.
- * @param timeoutSecs Timeout (seconds) for action
- */
-declare function getLocation(source: tkLocationMode, keepTracking: boolean, timeoutSecs: number): boolean
+     * }
+     * ```
+     *
+     * See also: action [Get Location](https://tasker.joaoapps.com/userguide/en/help/ah_get_fix.html),
+     * function stopLocation.
+     * @param source must be one of **gps**, **net** or **any**.
+     * @param keepTracking If *keepTracking* is set, the specified source(s)
+     * will be left tracking with the purpose of providing a much quicker fix
+     * next time the function is called.
+     * @param timeoutSecs Timeout (seconds) for action
+     */
+    function getLocation(source: tkLocationMode, keepTracking: boolean, timeoutSecs: number): boolean
 
 
-/**
- * Get voice input and convert to text.
- * @param prompt Label for the dialog that is shown during voice acquisition.
- * @param languageModel gives the speech recognition engine a clue as to the
- * context of the speech. It must be one of **web** for 'web search' or
- * **free** for 'free-form'.
- * @param timeout Timeout for action
- */
-declare function getVoice(prompt: string, languageModel: tkLanguageModel, timeout: number): string
+    /**
+     * Get voice input and convert to text.
+     * @param prompt Label for the dialog that is shown during voice acquisition.
+     * @param languageModel gives the speech recognition engine a clue as to the
+     * context of the speech. It must be one of **web** for 'web search' or
+     * **free** for 'free-form'.
+     * @param timeout Timeout for action
+     */
+    function getVoice(prompt: string, languageModel: tkLanguageModel, timeout: number): string
 
-/**
- * Retrieve the value of a Tasker global variable. Prefixing the name with % is optional.
- * @param varName Global variable name
- */
-declare function global(varName: string): string
+    /**
+     * Retrieve the value of a Tasker global variable. Prefixing the name with % is optional.
+     * @param varName Global variable name
+     */
+    function global(varName: string): string
 
-/**
- * List all files in the specified *dirPath*.
- *
- * Returns a newline-separated list of subfiles.
- * If no files or found or an error occurs, the returned value will be undefined.
- * @param dirPath Directory to list files
- * @param hiddenToo If **hiddenToo** is specified, files starting with
- * period are included, otherwise they are not.
- */
-declare function listFiles(dirPath: string, hiddenToo: boolean): string | undefined
+    /**
+     * List all files in the specified *dirPath*.
+     *
+     * Returns a newline-separated list of subfiles.
+     * If no files or found or an error occurs, the returned value will be undefined.
+     * @param dirPath Directory to list files
+     * @param hiddenToo If **hiddenToo** is specified, files starting with
+     * period are included, otherwise they are not.
+     */
+    function listFiles(dirPath: string, hiddenToo: boolean): string | undefined
 
-/**
- * Start up the named app.
- * @param name can be a package name or app label, it's tested first against
- * known package names. Note: app label could be localized to another
- * language if the script is used in an exported app.
- * @param data is in URI format and app-specific.
- * @param excludeFromRecents When *excludeFromRecents* is true, the app
- * will not appear in the home screen 'recent applications' list.
- */
-declare function loadApp(name: string, data: string, excludeFromRecents: boolean): boolean
+    /**
+     * Start up the named app.
+     * @param name can be a package name or app label, it's tested first against
+     * known package names. Note: app label could be localized to another
+     * language if the script is used in an exported app.
+     * @param data is in URI format and app-specific.
+     * @param excludeFromRecents When *excludeFromRecents* is true, the app
+     * will not appear in the home screen 'recent applications' list.
+     */
+    function loadApp(name: string, data: string, excludeFromRecents: boolean): boolean
 
-/**
- * Load an image into Tasker's internal image buffer.
- *
- * See also [Load Image](https://tasker.joaoapps.com/userguide/en/help/ah_load_image.html) action.
- * @param uri Must start with `file://` followed by a local path
- */
-declare function loadImage(uri: string): boolean
+    /**
+     * Load an image into Tasker's internal image buffer.
+     *
+     * See also [Load Image](https://tasker.joaoapps.com/userguide/en/help/ah_load_image.html) action.
+     * @param uri Must start with `file://` followed by a local path
+     */
+    function loadImage(uri: string): boolean
 
-/**
- * Show a lock screen, preventing user interaction with the covered part of
- * the screen. The JavaScript waits until the code has been entered or the
- * lock cancelled (see below).
- * @param title Lock screen title
- * @param code the numeric code which must be entered for unlock
- * @param allowCancel show a button to remove the lockscreen, which causes a
- * return to the Android home screen
- * @param rememberCode the code will be remembered and automatically entered
- * when the lock screen is show in future, until the display next turns off
- * @param fullScreen Make lockscreen fullscreen
- * @param background [optional] a file path or file URI to a background image.
- * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * to use in place of the built-in lock scene
- */
-declare function lock(
+    /**
+     * Show a lock screen, preventing user interaction with the covered part of
+     * the screen. The JavaScript waits until the code has been entered or the
+     * lock cancelled (see below).
+     * @param title Lock screen title
+     * @param code the numeric code which must be entered for unlock
+     * @param allowCancel show a button to remove the lockscreen, which causes a
+     * return to the Android home screen
+     * @param rememberCode the code will be remembered and automatically entered
+     * when the lock screen is show in future, until the display next turns off
+     * @param fullScreen Make lockscreen fullscreen
+     * @param background [optional] a file path or file URI to a background image.
+     * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * to use in place of the built-in lock scene
+     */
+    function lock(
         title: string,
         code: string,
         allowCancel: boolean,
@@ -625,97 +626,97 @@ declare function lock(
         layout: string
     ): boolean
 
-/**
- * Retrieve the value of a Tasker scene-local variable. The name should not
- * be prefixed with %.
- *
- * This function is only for use by JavaScript embedded in HTML and accessed
- * via a WebView scene element.
- * @param varName
- */
-declare function local(varName: string): string
+    /**
+     * Retrieve the value of a Tasker scene-local variable. The name should not
+     * be prefixed with %.
+     *
+     * This function is only for use by JavaScript embedded in HTML and accessed
+     * via a WebView scene element.
+     * @param varName
+     */
+    function local(varName: string): string
 
-/**
- * Control media via simulation of hardware buttons.
- * @param action Possible *actions* are **next**, **pause**, **prev**,
- * **toggle**, **stop** or **play**.
- */
-declare function mediaControl(action: tkMediaAction): boolean
+    /**
+     * Control media via simulation of hardware buttons.
+     * @param action Possible *actions* are **next**, **pause**, **prev**,
+     * **toggle**, **stop** or **play**.
+     */
+    function mediaControl(action: tkMediaAction): boolean
 
-/**
- * Mute or unmute the device's microphone (if present),
- * @param shouldMute Should the microphone be muted
- */
-declare function micMute(shouldMute: boolean): boolean
+    /**
+     * Mute or unmute the device's microphone (if present),
+     * @param shouldMute Should the microphone be muted
+     */
+    function micMute(shouldMute: boolean): boolean
 
-/**
- * Enable or disable the system Mobile Data setting.
- *
- * See also: action [Mobile Data](https://tasker.joaoapps.com/userguide/en/help/ah_mobile_data_direct.html)
- * @param set Enable or disable
- */
-declare function mobileData(set: boolean): boolean
+    /**
+     * Enable or disable the system Mobile Data setting.
+     *
+     * See also: action [Mobile Data](https://tasker.joaoapps.com/userguide/en/help/ah_mobile_data_direct.html)
+     * @param set Enable or disable
+     */
+    function mobileData(set: boolean): boolean
 
-/**
- * Skip back by *seconds* during playback of a music file previously started
- * by musicPlay.
- *
- * See also: {@link musicSkip}, {@link musicStop}
- * @param seconds Seconds to skip back
- */
-declare function musicBack(seconds: number): boolean
+    /**
+     * Skip back by *seconds* during playback of a music file previously started
+     * by musicPlay.
+     *
+     * See also: {@link musicSkip}, {@link musicStop}
+     * @param seconds Seconds to skip back
+     */
+    function musicBack(seconds: number): boolean
 
-/**
- * Play a music file via Tasker's internal music player.
- *
- * This function does **not** not wait for completion.
- *
- * The last 3 arguments may be ommitted, in which case they default to **0**,
- * **false** and **media** respectively.
- *
- * See also: {@link musicStop}, {@link musicBack}, {@link musicSkip}
- * @param path Path to music file
- * @param offsetSecs Seconds from beginning of file
- * @param loop Should audio loop
- * @param stream which [audio stream](https://tasker.joaoapps.com/userguide/en/javascript.html#streams)
- * the music should be played
- */
-declare function musicPlay(path: string, offsetSecs?: number, loop?: boolean, stream?: tkAudioStream): boolean
+    /**
+     * Play a music file via Tasker's internal music player.
+     *
+     * This function does **not** not wait for completion.
+     *
+     * The last 3 arguments may be ommitted, in which case they default to **0**,
+     * **false** and **media** respectively.
+     *
+     * See also: {@link musicStop}, {@link musicBack}, {@link musicSkip}
+     * @param path Path to music file
+     * @param offsetSecs Seconds from beginning of file
+     * @param loop Should audio loop
+     * @param stream which [audio stream](https://tasker.joaoapps.com/userguide/en/javascript.html#streams)
+     * the music should be played
+     */
+    function musicPlay(path: string, offsetSecs?: number, loop?: boolean, stream?: tkAudioStream): boolean
 
-/**
- * Skip forwards by seconds during playback of a music file previously
- * started by musicPlay.
- *
- * See also: {@link musicBack}, {@link musicStop}
- * @param seconds Seconds to skip forward
- */
-declare function musicSkip(seconds: number): boolean
+    /**
+     * Skip forwards by seconds during playback of a music file previously
+     * started by musicPlay.
+     *
+     * See also: {@link musicBack}, {@link musicStop}
+     * @param seconds Seconds to skip forward
+     */
+    function musicSkip(seconds: number): boolean
 
-/**
- * Stop playback of a music file previously started by musicPlay.
- *
- * See also: {@link musicBack}, {@link musicSkip}
- */
-declare function musicStop(): boolean
+    /**
+     * Stop playback of a music file previously started by musicPlay.
+     *
+     * See also: {@link musicBack}, {@link musicSkip}
+     */
+    function musicStop(): boolean
 
-/**
- * Turn on or off Android Night Mode.
- * @param onFlag On or off
- */
-declare function nightMode(onFlag: boolean): boolean
+    /**
+     * Turn on or off Android Night Mode.
+     * @param onFlag On or off
+     */
+    function nightMode(onFlag: boolean): boolean
 
-/**
- * Show a popup dialog. The JavaScript waits until the popup has been
- * dismissed or the timeout reached.
- * @param title Popup title
- * @param text Popup text
- * @param showOverKeyguard Show scene over keyguard
- * @param background [optional] a file path or file URI to a background image.
- * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
- * to use in place of the built-in popup scene.
- * @param timeoutSecs Time (seconds) to wait before ending
- */
-declare function popup(
+    /**
+     * Show a popup dialog. The JavaScript waits until the popup has been
+     * dismissed or the timeout reached.
+     * @param title Popup title
+     * @param text Popup text
+     * @param showOverKeyguard Show scene over keyguard
+     * @param background [optional] a file path or file URI to a background image.
+     * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
+     * to use in place of the built-in popup scene.
+     * @param timeoutSecs Time (seconds) to wait before ending
+     */
+    function popup(
         title: string,
         text: string,
         showOverKeyguard: boolean,
@@ -724,87 +725,87 @@ declare function popup(
         timeoutSecs: number
     ): boolean
 
-/**
- * Run the Tasker task *taskName*.
- *
- * Note that the JavaScript does not wait for the task to complete.
- * @param taskName Task name
- * @param priority Priority
- * @param parameterOne Parameter for task
- * @param parameterTwo Parameter for task
- */
-declare function performTask(taskName: string, priority: number, parameterOne: string, parameterTwo: string): boolean
+    /**
+     * Run the Tasker task *taskName*.
+     *
+     * Note that the JavaScript does not wait for the task to complete.
+     * @param taskName Task name
+     * @param priority Priority
+     * @param parameterOne Parameter for task
+     * @param parameterTwo Parameter for task
+     */
+    function performTask(taskName: string, priority: number, parameterOne: string, parameterTwo: string): boolean
 
-/**
- * Whether the named Tasker profile is currently active.
- *
- * Returns false if the profile name is unknown.
- * @param profileName Profile name
- */
-declare function profileActive(profileName: string): boolean
+    /**
+     * Whether the named Tasker profile is currently active.
+     *
+     * Returns false if the profile name is unknown.
+     * @param profileName Profile name
+     */
+    function profileActive(profileName: string): boolean
 
-/**
- * Enable or disable the Android Notification Pulse system setting.
- * @param onFlag Enable or disable
- */
-declare function pulse(onFlag: boolean): boolean
+    /**
+     * Enable or disable the Android Notification Pulse system setting.
+     * @param onFlag Enable or disable
+     */
+    function pulse(onFlag: boolean): boolean
 
-/**
- * Read the contents of a text file.
- * @param path File to read
- */
-declare function readFile(path: string): string
+    /**
+     * Read the contents of a text file.
+     * @param path File to read
+     */
+    function readFile(path: string): string
 
-/**
- * Reboot the device.
- *
- * Requires a rooted device.
- *
- * See also: function {@link shutdown}
- * @param type one of **normal**, **recovery** or **bootloader**.
- * It can be ommitted and defaults to **normal**.
- */
-declare function reboot(type?: tkRebootMode): boolean
+    /**
+     * Reboot the device.
+     *
+     * Requires a rooted device.
+     *
+     * See also: function {@link shutdown}
+     * @param type one of **normal**, **recovery** or **bootloader**.
+     * It can be ommitted and defaults to **normal**.
+     */
+    function reboot(type?: tkRebootMode): boolean
 
-/**
- * Scale the current image in Tasker's image buffer to the specified dimensions.
- * @param width Width of image
- * @param height Height of image
- */
-declare function resizeImage(width: number, height: number): boolean
+    /**
+     * Scale the current image in Tasker's image buffer to the specified dimensions.
+     * @param width Width of image
+     * @param height Height of image
+     */
+    function resizeImage(width: number, height: number): boolean
 
-/**
- * Rotate the current image in Tasker's image buffer.
- * @param dir must be one of **left** or **right**.
- * @param degrees must be one of **45**, **90**, **135** or **180**.
- */
-declare function rotateImage(dir: tkRotationDirection, degrees: tkRotationDegrees): boolean
+    /**
+     * Rotate the current image in Tasker's image buffer.
+     * @param dir must be one of **left** or **right**.
+     * @param degrees must be one of **45**, **90**, **135** or **180**.
+     */
+    function rotateImage(dir: tkRotationDirection, degrees: tkRotationDegrees): boolean
 
-/**
- * Save the current image in Tasker's image buffer to the specified file path.
- *
- * [Save Image](https://tasker.joaoapps.com/userguide/en/help/ah_save_image.html) action.
- * @param path
- * @param qualityPercent
- * @param deleteFromMemoryAfter
- */
-declare function saveImage(path: string, qualityPercent: number, deleteFromMemoryAfter: boolean): boolean
+    /**
+     * Save the current image in Tasker's image buffer to the specified file path.
+     *
+     * [Save Image](https://tasker.joaoapps.com/userguide/en/help/ah_save_image.html) action.
+     * @param path
+     * @param qualityPercent
+     * @param deleteFromMemoryAfter
+     */
+    function saveImage(path: string, qualityPercent: number, deleteFromMemoryAfter: boolean): boolean
 
-/**
- * Cause the device to say *text* out loud.
- *
- * The script waits for the speech to be finished.
- * @param text Text to say
- * @param enginge the speech engine e.g. **com.svox.classic** Defaults to the
- * system default (specify undefined for that)
- * @param voice the voice to use (must be supported by *engine*).
- * Defaults to the current system language (specify undefined for that)
- * @param stream to which [audio stream](https://tasker.joaoapps.com/userguide/en/javascript.html#streams)
- * the speech should be made
- * @param pitch 1-10
- * @param speed 1-10
- */
-declare function say(
+    /**
+     * Cause the device to say *text* out loud.
+     *
+     * The script waits for the speech to be finished.
+     * @param text Text to say
+     * @param enginge the speech engine e.g. **com.svox.classic** Defaults to the
+     * system default (specify undefined for that)
+     * @param voice the voice to use (must be supported by *engine*).
+     * Defaults to the current system language (specify undefined for that)
+     * @param stream to which [audio stream](https://tasker.joaoapps.com/userguide/en/javascript.html#streams)
+     * the speech should be made
+     * @param pitch 1-10
+     * @param speed 1-10
+     */
+    function say(
         text: string,
         enginge: string | undefined,
         voice: string | undefined,
@@ -813,25 +814,25 @@ declare function say(
         speed: number
     ): boolean
 
-/**
- * Send an intent. Intents are Android's high-level application interaction system.
- *
- * Any parameter may be specified as undefined.
- *
- * See also: action [Send Intent](https://tasker.joaoapps.com/userguide/en/help/ah_send_intent.html).
- * @param action Intent action
- * @param targetComp the type of application component to target, one of
- * **receiver**, **activity** or **service**. Defaults to **receiver**.
- * @param package the application package to limt the intent to
- * @param className the application class to limit the intent to
- * @param category one of **none**, **alt**, **browsable**, **cardock**,
- * **deskdock**, **home**, **info**, **launcher**, **preference**,
- * **selectedalt**, **tab** or **test**, defaults to **none**
- * @param data Intent data
- * @param mimeType Intent mime type
- * @param extras extra data to pass, in the format key:value. May be undefined. Maximum length 2.
- */
-declare function sendIntent(
+    /**
+     * Send an intent. Intents are Android's high-level application interaction system.
+     *
+     * Any parameter may be specified as undefined.
+     *
+     * See also: action [Send Intent](https://tasker.joaoapps.com/userguide/en/help/ah_send_intent.html).
+     * @param action Intent action
+     * @param targetComp the type of application component to target, one of
+     * **receiver**, **activity** or **service**. Defaults to **receiver**.
+     * @param package the application package to limt the intent to
+     * @param className the application class to limit the intent to
+     * @param category one of **none**, **alt**, **browsable**, **cardock**,
+     * **deskdock**, **home**, **info**, **launcher**, **preference**,
+     * **selectedalt**, **tab** or **test**, defaults to **none**
+     * @param data Intent data
+     * @param mimeType Intent mime type
+     * @param extras extra data to pass, in the format key:value. May be undefined. Maximum length 2.
+     */
+    function sendIntent(
         action: tkIntentAction,
         targetComp: string,
         package: string,
@@ -842,176 +843,176 @@ declare function sendIntent(
         extras: string[]
     ): boolean
 
-/**
- * Send an SMS.
- *
- * See also: action [Send SMS](https://tasker.joaoapps.com/userguide/en/help/ah_send_sms.html)
- * @param number Number to send message to
- * @param text SMS body
- * @param storeInMessagingApp Show text message in messaging app
- */
-declare function sendSMS(number: string, text: string, storeInMessagingApp: boolean): boolean
+    /**
+     * Send an SMS.
+     *
+     * See also: action [Send SMS](https://tasker.joaoapps.com/userguide/en/help/ah_send_sms.html)
+     * @param number Number to send message to
+     * @param text SMS body
+     * @param storeInMessagingApp Show text message in messaging app
+     */
+    function sendSMS(number: string, text: string, storeInMessagingApp: boolean): boolean
 
-/**
- * Enable or disable Airplane Mode.
- *
- * Get the current value with:
- * ```js
- * var enabled = global( 'AIR' );
- * ```
- *
- * See also: function {@link setAirplaneRadios}
- * @param setOn On or off
- */
-declare function setAirplaneMode(setOn: boolean): boolean
+    /**
+     * Enable or disable Airplane Mode.
+     *
+     * Get the current value with:
+     * ```js
+     * var enabled = global( 'AIR' );
+     * ```
+     *
+     * See also: function {@link setAirplaneRadios}
+     * @param setOn On or off
+     */
+    function setAirplaneMode(setOn: boolean): boolean
 
-/**
- * Specify the radios which will be **disabled** when the device enters Airplane Mode.
- *
- * Get the current value with:
- * ```js
- * var radios = global( 'AIRR' );
- * ```
- *
- * See also: function {@link setAirplaneMode}
- * @param disableRadios a comma-separated list with radio names from the
- * following set: **cell**, **nfc**, **wifi**, **wimax**, **bt**.
- */
-declare function setAirplaneRadios(disableRadios: string): boolean
+    /**
+     * Specify the radios which will be **disabled** when the device enters Airplane Mode.
+     *
+     * Get the current value with:
+     * ```js
+     * var radios = global( 'AIRR' );
+     * ```
+     *
+     * See also: function {@link setAirplaneMode}
+     * @param disableRadios a comma-separated list with radio names from the
+     * following set: **cell**, **nfc**, **wifi**, **wimax**, **bt**.
+     */
+    function setAirplaneRadios(disableRadios: string): boolean
 
-/**
- * Create an alarm in the default alarm clock app.
- *
- * Requires Android version 2.3+.
- * @param hour Alarm time (hour)
- * @param min Alarm time (minute)
- * @param message Alarm message (optional)
- * @param confirmFlag specifies whether the app should confirm that the alarm has been set.
- */
-declare function setAlarm(hour: number, min: number, message: string, confirmFlag: boolean): boolean
+    /**
+     * Create an alarm in the default alarm clock app.
+     *
+     * Requires Android version 2.3+.
+     * @param hour Alarm time (hour)
+     * @param min Alarm time (minute)
+     * @param message Alarm message (optional)
+     * @param confirmFlag specifies whether the app should confirm that the alarm has been set.
+     */
+    function setAlarm(hour: number, min: number, message: string, confirmFlag: boolean): boolean
 
-/**
- * Enable or disable the global auto-sync setting.
- * @param setOn On or off
- */
-declare function setAutoSync(setOn: boolean): boolean
+    /**
+     * Enable or disable the global auto-sync setting.
+     * @param setOn On or off
+     */
+    function setAutoSync(setOn: boolean): boolean
 
-/**
- * Force the system to scan the external storage card for new/deleted media.
- *
- * See also: action [Scan Card](https://tasker.joaoapps.com/userguide/en/help/ah_scan_card.html)
- * @param path If *path* is defined, only that will be scanned.
- */
-declare function scanCard(path?: string): boolean
+    /**
+     * Force the system to scan the external storage card for new/deleted media.
+     *
+     * See also: action [Scan Card](https://tasker.joaoapps.com/userguide/en/help/ah_scan_card.html)
+     * @param path If *path* is defined, only that will be scanned.
+     */
+    function scanCard(path?: string): boolean
 
-/**
- * Enable or disable the Bluetooth radio (if present).
- * Test BT state with:
- * ```js
- * if ( global( 'BLUE' ) == "on" ) { doSomething(); }
- * ```
- * @param setOn On or off
- */
-declare function setBT(setOn: boolean): boolean
+    /**
+     * Enable or disable the Bluetooth radio (if present).
+     * Test BT state with:
+     * ```js
+     * if ( global( 'BLUE' ) == "on" ) { doSomething(); }
+     * ```
+     * @param setOn On or off
+     */
+    function setBT(setOn: boolean): boolean
 
-/**
- * Set the bluetooth adapter ID (the name as seen by other devices).
- * @param toSet ID to set
- */
-declare function setBTID(toSet: string): boolean
+    /**
+     * Set the bluetooth adapter ID (the name as seen by other devices).
+     * @param toSet ID to set
+     */
+    function setBTID(toSet: string): boolean
 
-/**
- * Set the value of a Tasker global user variable. Prefixing varName with % is optional.
- *
- * Arrays are **not** supported due to limitations of the Android JS interface.
- * @param varName Global variable name
- * @param newValue New value of variable
- */
-declare function setGlobal(varName: string, newValue: string): void
+    /**
+     * Set the value of a Tasker global user variable. Prefixing varName with % is optional.
+     *
+     * Arrays are **not** supported due to limitations of the Android JS interface.
+     * @param varName Global variable name
+     * @param newValue New value of variable
+     */
+    function setGlobal(varName: string, newValue: string): void
 
-/**
- * Set the passphrase for the specified keyName.
- *
- * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
- * in the Userguide.
- * @param keyName Key name to set
- * @param passphrase Passphrase for key
- */
-declare function setKey(keyName: string, passphrase: string): boolean
+    /**
+     * Set the passphrase for the specified keyName.
+     *
+     * See Also: [Encryption](https://tasker.joaoapps.com/userguide/en/encryption.html)
+     * in the Userguide.
+     * @param keyName Key name to set
+     * @param passphrase Passphrase for key
+     */
+    function setKey(keyName: string, passphrase: string): boolean
 
-/**
- * Set the value of a Tasker **scene-local** user variable. Variable names
- * should not be prefixed with %.
- *
- * This function is only for use by JavaScript embedded in HTML and accessed
- * via a WebView scene element.
- * @param varName Local variable name
- * @param newValue New value of variable
- */
-declare function setLocal(varName: string, newValue: string): void
+    /**
+     * Set the value of a Tasker **scene-local** user variable. Variable names
+     * should not be prefixed with %.
+     *
+     * This function is only for use by JavaScript embedded in HTML and accessed
+     * via a WebView scene element.
+     * @param varName Local variable name
+     * @param newValue New value of variable
+     */
+    function setLocal(varName: string, newValue: string): void
 
-/**
- * Set the global system clipboard.
- *
- * Test the value with:
- * ```js
- * var clip = global( 'CLIP' );
- * ```
- * @param text Clipboard text
- * @param appendFlag Should text be appended to current clipboard
- */
-declare function setClip(text: string, appendFlag: boolean): boolean
+    /**
+     * Set the global system clipboard.
+     *
+     * Test the value with:
+     * ```js
+     * var clip = global( 'CLIP' );
+     * ```
+     * @param text Clipboard text
+     * @param appendFlag Should text be appended to current clipboard
+     */
+    function setClip(text: string, appendFlag: boolean): boolean
 
-/**
- * Show an Android System Settings screen.
- * @param screenName must be one of **all**, **accessibility**, **addacount**,
- * **airplanemode**, **apn**, **app**, **batteryinfo**, **appmanage**,
- * **bluetooth**, **date**, **deviceinfo**, **dictionary**, **display**,
- * **inputmethod**, **internalstorage**, **locale**, **location**,
- * **memorycard**, **networkoperator**, **powerusage**, **privacy**,
- * **quicklaunch**, **security**, **mobiledata**, **search**, **sound**,
- * **sync**, **wifi**, **wifiip** or **wireless**.
- */
-declare function settings(screenName: tkSettingsScreen): boolean
+    /**
+     * Show an Android System Settings screen.
+     * @param screenName must be one of **all**, **accessibility**, **addacount**,
+     * **airplanemode**, **apn**, **app**, **batteryinfo**, **appmanage**,
+     * **bluetooth**, **date**, **deviceinfo**, **dictionary**, **display**,
+     * **inputmethod**, **internalstorage**, **locale**, **location**,
+     * **memorycard**, **networkoperator**, **powerusage**, **privacy**,
+     * **quicklaunch**, **security**, **mobiledata**, **search**, **sound**,
+     * **sync**, **wifi**, **wifiip** or **wireless**.
+     */
+    function settings(screenName: tkSettingsScreen): boolean
 
-/**
- * Set the system home screen wallpaper.
- * @param path Path to image file
- */
-declare function setWallpaper(path: string): boolean
+    /**
+     * Set the system home screen wallpaper.
+     * @param path Path to image file
+     */
+    function setWallpaper(path: string): boolean
 
-/**
- *  Enable or disable the Wifi radio (if present).
- *
- * Test wifi state with:
- * ```js
- * if ( global( 'WIFI' ) == "on" ) { doSomething(); }
- * ```
- * @param setOn On or off
- */
-declare function setWifi(setOn: boolean): boolean
+    /**
+     *  Enable or disable the Wifi radio (if present).
+     *
+     * Test wifi state with:
+     * ```js
+     * if ( global( 'WIFI' ) == "on" ) { doSomething(); }
+     * ```
+     * @param setOn On or off
+     */
+    function setWifi(setOn: boolean): boolean
 
-/**
- * Run the shell command *command*.
- *
- * Returns undefined if the shell command failed. It's maximum size is
- * restricted to around 750K.
- * @param command Command to run
- * @param asRoot Will only have effect if device is rooted.
- * @param timeoutSecs Time (seconds) to wait for task
- */
-declare function shell(command: string, asRoot: boolean, timeoutSecs: number): string
+    /**
+     * Run the shell command *command*.
+     *
+     * Returns undefined if the shell command failed. It's maximum size is
+     * restricted to around 750K.
+     * @param command Command to run
+     * @param asRoot Will only have effect if device is rooted.
+     * @param timeoutSecs Time (seconds) to wait for task
+     */
+    function shell(command: string, asRoot: boolean, timeoutSecs: number): string
 
-/**
- * Show the named scene, creating it first if necessary.
- * @param name Scene name
- * @param displayAs one of **Overlay**, **OverBlocking**, **OverBlockFullDisplay**, **Dialog**, **DialogBlur**, **DialogDim**, **ActivityFullWindow**, **ActivityFullDisplay**, **ActivityFullDisplayNoTitle**
- * @param hoffset percentage horizontal offset for the scene -100% to 100% (not relevant for full screen/window display types)
- * @param voffset percentage vertical offset for the scene -100% to 100% (not relevant for full screen/window display types)
- * @param showExitIcon display a small icon in the bottom right which destroys the scene when pressed
- * @param waitForExit whether to wait for the scene to exit before continuing the script
- */
-declare function showScene(
+    /**
+     * Show the named scene, creating it first if necessary.
+     * @param name Scene name
+     * @param displayAs one of **Overlay**, **OverBlocking**, **OverBlockFullDisplay**, **Dialog**, **DialogBlur**, **DialogDim**, **ActivityFullWindow**, **ActivityFullDisplay**, **ActivityFullDisplayNoTitle**
+     * @param hoffset percentage horizontal offset for the scene -100% to 100% (not relevant for full screen/window display types)
+     * @param voffset percentage vertical offset for the scene -100% to 100% (not relevant for full screen/window display types)
+     * @param showExitIcon display a small icon in the bottom right which destroys the scene when pressed
+     * @param waitForExit whether to wait for the scene to exit before continuing the script
+     */
+    function showScene(
         name: string,
         displayAs: tkDisplayAs,
         hoffset: number,
@@ -1020,164 +1021,165 @@ declare function showScene(
         waitForExit: boolean
     ): boolean
 
-/**
- * Shutdown the device.
- *
- * Requires a rooted device.
- *
- * See also: {@link reboot}
- */
-declare function shutdown(): boolean
+    /**
+     * Shutdown the device.
+     *
+     * Requires a rooted device.
+     *
+     * See also: {@link reboot}
+     */
+    function shutdown(): boolean
 
-/**
- *
- * @param mode
- */
-declare function silentMode(mode: tkSilentMode): boolean
+    /**
+     *
+     * @param mode
+     */
+    function silentMode(mode: tkSilentMode): boolean
 
-/**
- * Run a previously created [SL4A](https://code.google.com/p/android-scripting/) script.
- * @param scriptName Script name
- * @param inTerminal Open script in terminal
- */
-declare function sl4a(scriptName: string, inTerminal: boolean): boolean
+    /**
+     * Run a previously created [SL4A](https://code.google.com/p/android-scripting/) script.
+     * @param scriptName Script name
+     * @param inTerminal Open script in terminal
+     */
+    function sl4a(scriptName: string, inTerminal: boolean): boolean
 
-/**
- * Setting the system *Sound Effects* setting (sound from clicking on buttons etc.
- * @param setTo On or off
- */
-declare function soundEffects(setTo: boolean): boolean
+    /**
+     * Setting the system *Sound Effects* setting (sound from clicking on buttons etc.
+     * @param setTo On or off
+     */
+    function soundEffects(setTo: boolean): boolean
 
-/**
- * Enable or disable the speakerphone function.
- * @param setFlag Enable or disable
- */
-declare function speakerPhone(setFlag: boolean): boolean
+    /**
+     * Enable or disable the speakerphone function.
+     * @param setFlag Enable or disable
+     */
+    function speakerPhone(setFlag: boolean): boolean
 
-/**
- * Expand or contract the system status bar.
- * @param expanded **true** to expand
- */
-declare function statusBar(expanded: boolean): boolean
+    /**
+     * Expand or contract the system status bar.
+     * @param expanded **true** to expand
+     */
+    function statusBar(expanded: boolean): boolean
 
-/**
- * Specify whether the device should remain on when power is connected.
- * @param mode Possible modes are **never**, **ac**, **usb**, **any**.
- */
-declare function stayOn(mode: tkStayOnMode): boolean
+    /**
+     * Specify whether the device should remain on when power is connected.
+     * @param mode Possible modes are **never**, **ac**, **usb**, **any**.
+     */
+    function stayOn(mode: tkStayOnMode): boolean
 
-/**
- * Stop tracking a location provider. This is only relevant when a
- * getLocation function has been previously called with the keepTracking
- * parameter set.
- */
-declare function stopLocation(): boolean
+    /**
+     * Stop tracking a location provider. This is only relevant when a
+     * getLocation function has been previously called with the keepTracking
+     * parameter set.
+     */
+    function stopLocation(): boolean
 
-/**
- * Turn off the display and activate the keyguard.
- *
- * Requires Tasker's Device Administrator to be enabled in Android settings.
- */
-declare function systemLock(): boolean
+    /**
+     * Turn off the display and activate the keyguard.
+     *
+     * Requires Tasker's Device Administrator to be enabled in Android settings.
+     */
+    function systemLock(): boolean
 
-/**
- * Whether the named Tasker task is currently running. Returns false if the
- * task name is unknown.
- * @param taskName Task name to check
- */
-declare function taskRunning(taskName: string): boolean
+    /**
+     * Whether the named Tasker task is currently running. Returns false if the
+     * task name is unknown.
+     * @param taskName Task name to check
+     */
+    function taskRunning(taskName: string): boolean
 
-/**
- * Auto-accept an incoming call (if there is one).
- */
-declare function takeCall(): boolean
+    /**
+     * Auto-accept an incoming call (if there is one).
+     */
+    function takeCall(): boolean
 
-/**
- * Take a photo with the builtin camera.
- *
- * See also: action [Take Photo](https://tasker.joaoapps.com/userguide/en/help/ah_take_photo.html)
- * @param camera 0 = rear camera, 1 = front camera
- * @param fileName Name to save photo as
- * @param resolution format WxH e.g. 640x840
- * @param insertGallery whether to insert the resulting picture in the
- * Android Gallery application
- */
-declare function takePhoto(camera: tkCamera, fileName: string, resolution: string, insertGallery: boolean): boolean
+    /**
+     * Take a photo with the builtin camera.
+     *
+     * See also: action [Take Photo](https://tasker.joaoapps.com/userguide/en/help/ah_take_photo.html)
+     * @param camera 0 = rear camera, 1 = front camera
+     * @param fileName Name to save photo as
+     * @param resolution format WxH e.g. 640x840
+     * @param insertGallery whether to insert the resulting picture in the
+     * Android Gallery application
+     */
+    function takePhoto(camera: tkCamera, fileName: string, resolution: string, insertGallery: boolean): boolean
 
-/**
- * Simulate keyboard typing.
- *
- * Requires a rooted device.
- * @param text Text to type
- * @param repeatCount How many times to repeat typing
- */
-declare function type(text: string, repeatCount: number): boolean
+    /**
+     * Simulate keyboard typing.
+     *
+     * Requires a rooted device.
+     * @param text Text to type
+     * @param repeatCount How many times to repeat typing
+     */
+    function type(text: string, repeatCount: number): boolean
 
-/**
- * Unpack a Zip archive into the parent directory of the archive.
- * @param zipPath Path to zip archive
- * @param deleteZipAfter If set, causes the zip archive to be deleted after
- * successful unpacking.
- */
-declare function unzip(zipPath: string, deleteZipAfter: boolean): boolean
+    /**
+     * Unpack a Zip archive into the parent directory of the archive.
+     * @param zipPath Path to zip archive
+     * @param deleteZipAfter If set, causes the zip archive to be deleted after
+     * successful unpacking.
+     */
+    function unzip(zipPath: string, deleteZipAfter: boolean): boolean
 
-/**
- * Enable or disable USB tethering.
- *
- * See also: action [USB Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_usb.html)
- * @param set Enable or disable
- */
-declare function usbTether(set: boolean): void
+    /**
+     * Enable or disable USB tethering.
+     *
+     * See also: action [USB Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_usb.html)
+     * @param set Enable or disable
+     */
+    function usbTether(set: boolean): void
 
-/**
- * Cause the device to vibrate for the specified time.
- * @param durationMilliseconds Length of vibration
- */
-declare function vibrate(durationMilliseconds: number): void
+    /**
+     * Cause the device to vibrate for the specified time.
+     * @param durationMilliseconds Length of vibration
+     */
+    function vibrate(durationMilliseconds: number): void
 
-/**
- * Cause the device to vibrate following the specified *pattern*
- * @param pattern consists of a sequence of off then on millisecond
- * durations e.g.
- * ```
- * 500,1000,750,1000
- * ```
- * wait for 500ms, vibrates 1000ms, wait for 750ms, then vibrate for 1000ms.
- * */
-declare function vibratePattern(pattern: string): void
+    /**
+     * Cause the device to vibrate following the specified *pattern*
+     * @param pattern consists of a sequence of off then on millisecond
+     * durations e.g.
+     * ```
+     * 500,1000,750,1000
+     * ```
+     * wait for 500ms, vibrates 1000ms, wait for 750ms, then vibrate for 1000ms.
+     * */
+    function vibratePattern(pattern: string): void
 
-/**
- * Pause the script for the specified time.
- *
- * Warning: may cause some preceeding functions not to complete in some
- * situations. If in doubt, use JavaScript setTimeout() instead.
- * @param durationMilliseconds Length to wait
- */
-declare function wait(durationMilliseconds: number): void
+    /**
+     * Pause the script for the specified time.
+     *
+     * Warning: may cause some preceeding functions not to complete in some
+     * situations. If in doubt, use JavaScript setTimeout() instead.
+     * @param durationMilliseconds Length to wait
+     */
+    function wait(durationMilliseconds: number): void
 
-/**
- * Enable or disable Wifi tethering.
- *
- * See also: action [Wifi Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_wifi.html)
- * @param set Enable or disable
- */
-declare function wifiTether(set: boolean): boolean
+    /**
+     * Enable or disable Wifi tethering.
+     *
+     * See also: action [Wifi Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_wifi.html)
+     * @param set Enable or disable
+     */
+    function wifiTether(set: boolean): boolean
 
-/**
- * Write *text* to *file* path.
- * @param path Path to file
- * @param text File contents
- * @param append If *append* is specified, the text will be attached to the
- * end of the existing file contents (if there are any).
- */
-declare function writeFile(path: string, text: string, append: boolean): boolean
+    /**
+     * Write *text* to *file* path.
+     * @param path Path to file
+     * @param text File contents
+     * @param append If *append* is specified, the text will be attached to the
+     * end of the existing file contents (if there are any).
+     */
+    function writeFile(path: string, text: string, append: boolean): boolean
 
-/**
- * Zip a file or directory.
- * @param path Path to file to zip
- * @param level the desired compression level from 1-9, with 9 resulting in
- * the smallest file and the longest compression time.
- * @param deleteOriginalAfter If *deleteOriginalAfter* is **true**, causes
- * *path* to be deleted if the zip operation is successful.
- */
-declare function zip(path: string, level: number, deleteOriginalAfter: boolean): boolean
+    /**
+     * Zip a file or directory.
+     * @param path Path to file to zip
+     * @param level the desired compression level from 1-9, with 9 resulting in
+     * the smallest file and the longest compression time.
+     * @param deleteOriginalAfter If *deleteOriginalAfter* is **true**, causes
+     * *path* to be deleted if the zip operation is successful.
+     */
+    function zip(path: string, level: number, deleteOriginalAfter: boolean): boolean
+}
