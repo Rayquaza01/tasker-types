@@ -26,15 +26,15 @@ export type tkSilentMode = "off" | "vibrate" | "on";
 export type tkStayOnMode = "never" | "ac" | "usb" | "any";
 export type tkCamera = 0 | 1;
 
-// Interface with type definitions for Tasker functions
-export interface TK {
+// We are using global declarations, because tasker function are not imported, and called without defining them
+declare global {
     /**
      * Set alarm volume
      * @param level Set the relevant system volume to *level*. (0-7)
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    alarmVol(level: number, display: boolean, sound: boolean): boolean
+    function alarmVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set bluetooth voice volume
@@ -42,7 +42,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    btVoiceVol(level: number, display: boolean, sound: boolean): boolean
+    function btVoiceVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set call volume
@@ -50,7 +50,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    callVol(level: number, display: boolean, sound: boolean): boolean
+    function callVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set dtmf volume
@@ -58,7 +58,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    dtmfVol(level: number, display: boolean, sound: boolean): boolean
+    function dtmfVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set media volume
@@ -66,7 +66,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    mediaVol(level: number, display: boolean, sound: boolean): boolean
+    function mediaVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set notification volume
@@ -74,7 +74,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    notificationVol(level: number, display: boolean, sound: boolean): boolean
+    function notificationVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set system volume
@@ -82,7 +82,7 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    systemVol(level: number, display: boolean, sound: boolean): boolean
+    function systemVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Set ringer volume
@@ -90,32 +90,32 @@ export interface TK {
      * @param display If *display* is true, the new level will be flashed up on-screen.
      * @param sound If *sound* is true, a tone will sound at the new level.
      */
-    ringerVol(level: number, display: boolean, sound: boolean): boolean
+    function ringerVol(level: number, display: boolean, sound: boolean): boolean
 
     /**
      * Records audio
      *
      * The JavaScript does **not** wait for the audio recording to complete.
      *
-     * See also: audioRecordStop().
+     * See also: {@link audioRecordStop}().
      * @param destPath where to put the recording. Note that a file extension is
      * not necessary, it will correspond to the selected *format*.
      * @param source one of **def**, **mic**, **call**, **callout** or **callin**
      * @param codec one of **amrn**, **amrw** or **aac**
      * @param format one of **mp4**, **3gpp**, **amrn** or **amrw**
      */
-    audioRecord(destPath: string, source: tkAudioRecordSource, codec: tkAudioRecordCodec, format: tkAudioRecordFormat): boolean
+    function audioRecord(destPath: string, source: tkAudioRecordSource, codec: tkAudioRecordCodec, format: tkAudioRecordFormat): boolean
 
     /**
-     * Stop recording previously initiated by audioRecord().
+     * Stop recording previously initiated by {@link audioRecord}().
      */
-    audioRecordStop(): boolean
+    function audioRecordStop(): boolean
 
     /**
      * Open the default browser at the specifed URL.
      * @param url URL to open
      */
-    browseURL(url: string): boolean
+    function browseURL(url: string): boolean
 
     /**
      * Simulate a press of the named button.
@@ -124,7 +124,7 @@ export interface TK {
      * @param name must be one of **back**, **call**, **camera**, **endcall**,
      * **menu**, **volup**, **voldown** or **search**.
      */
-    button(name: tkButtonNames): boolean
+    function button(name: tkButtonNames): boolean
 
     /**
      * Make a phone call
@@ -132,7 +132,7 @@ export interface TK {
      * @param autodial If *autoDial* is **false**, the phone app will be brought
      * up with the number pre-inserted, if **true** the number will also be dialed.
      */
-    call(num: string, autodial: boolean): boolean
+    function call(num: string, autodial: boolean): boolean
 
     /**
      * Block **outgoing** calls
@@ -140,7 +140,7 @@ export interface TK {
      * @param numMatch Pattern to block
      * @param showInfo If showInfo is set, Tasker will flash a message when a call is blocked.
      */
-    callBlock(numMatch: string, showInfo: boolean): boolean
+    function callBlock(numMatch: string, showInfo: boolean): boolean
 
     /**
      * Divert **outgoing** calls
@@ -150,20 +150,20 @@ export interface TK {
      * @param to Number to divert to
      * @param showInfo If *showInfo* is set, Tasker will flash a message when a call is diverted.
      */
-    callDivert(fromMatch: string, to: string, showInfo: boolean): boolean
+    function callDivert(fromMatch: string, to: string, showInfo: boolean): boolean
 
     /**
      * Stop blocking or diverting outgoing calls previously specified with
      * callBlock or callDivert.
      * @param numMatch Pattern to stop blocking/diverting
      */
-    callRevert(numMatch: string): boolean
+    function callRevert(numMatch: string): boolean
 
     /**
      * Turn on or off Android Car Mode.
      * @param onFlag On or off
      */
-    carMode(onFlag: boolean): boolean
+    function carMode(onFlag: boolean): boolean
 
     /**
      * Clear the passphrase for the specified *keyName*.
@@ -172,7 +172,7 @@ export interface TK {
      * in the Userguide.
      * @param keyName key to clear
      */
-    clearKey(keyName: string): boolean
+    function clearKey(keyName: string): boolean
 
     /**
      * Show an email composition dialog with any specified fields pre-filled.
@@ -182,7 +182,7 @@ export interface TK {
      * @param subject Subject field
      * @param message Message body
      */
-    composeEmail(to: string, subject: string, message: string): boolean
+    function composeEmail(to: string, subject: string, message: string): boolean
 
     /**
      * Show an MMS composition dialog with any specified fields pre-filled.
@@ -193,7 +193,7 @@ export interface TK {
      * @param message MMS Body
      * @param attachmentPath Path to attachment
      */
-    composeMMS(to: string, subject: string, message: string, attachmentPath: string): boolean
+    function composeMMS(to: string, subject: string, message: string, attachmentPath: string): boolean
 
     /**
      * Show an SMS composition dialog with any specified fields pre-filled.
@@ -202,7 +202,7 @@ export interface TK {
      * @param to SMS To Field
      * @param message SMS Body
      */
-    composeSMS(to: string, message: string): boolean
+    function composeSMS(to: string, message: string): boolean
 
     /**
      * Convert from one type of value to another.
@@ -218,7 +218,7 @@ export interface TK {
      * **base64decode**, **toMd5**, **toSha1**, **toLowerCase**, **toUpperCase**,
      * **toUpperCaseFirst**.
      */
-    convert(val: string, conversionType: tkConversionType): string
+    function convert(val: string, conversionType: tkConversionType): string
 
     /**
      * Create a directory
@@ -228,14 +228,14 @@ export interface TK {
      * @param useRoot If *useRoot* is specified, the operation will be performed
      * as the root user (where available).
      */
-    createDir(dirPath: string, createParent: boolean, useRoot: boolean): boolean
+    function createDir(dirPath: string, createParent: boolean, useRoot: boolean): boolean
 
     /**
      * Create the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
      * without displaying it.
      * @param sceneName Scene to create
      */
-    createScene(sceneName: string): boolean
+    function createScene(sceneName: string): boolean
 
     /**
      * Crop an image in Tasker's image buffer previously loaded via loadImage.
@@ -244,7 +244,7 @@ export interface TK {
      * @param fromTopPercent Percentage from top to crop
      * @param fromBottomPercent Percentage from bottom to crop
      */
-    cropImage(fromLeftPercent: number, fromRightPercent: number, fromTopPercent: number, fromBottomPercent: number): boolean
+    function cropImage(fromLeftPercent: number, fromRightPercent: number, fromTopPercent: number, fromBottomPercent: number): boolean
 
     /**
      * As decryptFile(), but decrypts each file in the specified directory in turn.
@@ -259,7 +259,7 @@ export interface TK {
      * be reapplied automatically to the next encryption/decryption operation with
      * the specified *keyName*.
      */
-    decryptDir(path: string, key: string, removeKey: boolean): boolean
+    function decryptDir(path: string, key: string, removeKey: boolean): boolean
 
     /**
      * Decrypt the specified file using the encryption parameters specified in
@@ -275,7 +275,7 @@ export interface TK {
      * be reapplied automatically to the next encryption/decryption operation
      * with the specified *keyName*.
      */
-    decryptFile(path: string, key: string, removeKey: boolean): boolean
+    function decryptFile(path: string, key: string, removeKey: boolean): boolean
 
     /**
      * Delete a directory
@@ -284,7 +284,7 @@ export interface TK {
      * @param useRoot If *useRoot* is specified, the operation will be performed
      * as the root user (where available).
      */
-    deleteDir(dirPath: string, recurse: boolean, useRoot: boolean): boolean
+    function deleteDir(dirPath: string, recurse: boolean, useRoot: boolean): boolean
 
     /**
      * Delete a file
@@ -295,28 +295,28 @@ export interface TK {
      * @param useRoot If *useRoot* is specified, the operation will be performed
      * as the root user (where available).
      */
-    deleteFile(filePath: string, shredTimes: number, useRoot: boolean): boolean
+    function deleteFile(filePath: string, shredTimes: number, useRoot: boolean): boolean
 
     /**
      * Hide the named [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
      * if it's visible, then destroy it.
      * @param sceneName Scene name
      */
-    destroyScene(sceneName: string): boolean
+    function destroyScene(sceneName: string): boolean
 
     /**
      * Whether the display brightness should automatically adjust to the ambient
      * light or not.
      * @param onFlag On or off
      */
-    displayAutoBright(onFlag: boolean): boolean
+    function displayAutoBright(onFlag: boolean): boolean
 
     /**
      * Whether the display orientation should change based on the physical
      * orientation of the device.
      * @param onFlag On or off
      */
-    displayAutoRotate(onFlag: boolean): boolean
+    function displayAutoRotate(onFlag: boolean): boolean
 
     /**
      * How long the period of no-activity should be before the display is turned off.
@@ -324,7 +324,7 @@ export interface TK {
      * @param minutes Minutes of inactivity
      * @param seconds Seconds of inactivity
      */
-    displayTimeout(hours: number, minutes: number, seconds: number): boolean
+    function displayTimeout(hours: number, minutes: number, seconds: number): boolean
 
     /**
      * Simulate a movement or press of the hardware dpad (or trackball).
@@ -333,14 +333,14 @@ export interface TK {
      * @param direction must be one of **up**, **down**, **left**, **right** or **press**.
      * @param noRepeats
      */
-    dpad(direction: tkDirection, noRepeats: number): boolean
+    function dpad(direction: tkDirection, noRepeats: number): boolean
 
     /**
      * Enable or disable the named Tasker profile.
      * @param name Profile name
      * @param enable Enable or disable
      */
-    enableProfile(name: string, enable: boolean): boolean
+    function enableProfile(name: string, enable: boolean): boolean
 
     /**
      * As encryptFile(), but encrypts each file in the specified directory in turn.
@@ -356,7 +356,7 @@ export interface TK {
      * @param shredOriginal If *shredOriginal* is specified, the original
      * file will be overwritten several times with random bits if encryption is successful.
      */
-    encryptDir(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
+    function encryptDir(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
 
     /**
      * Set the background [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
@@ -370,7 +370,7 @@ export interface TK {
      * @param endColour End Colour is only relevant if the element's background
      * has a Shader specified.
      */
-    elemBackColour(scene: string, element: string, startColour: string, endColour: string): boolean
+    function elemBackColour(scene: string, element: string, startColour: string, endColour: string): boolean
 
     /**
      * Set the border [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
@@ -380,7 +380,7 @@ export interface TK {
      * @param width Border width
      * @param colour Border colour
      */
-    elemBorder(scene: string, element: string, width: number, colour: string): boolean
+    function elemBorder(scene: string, element: string, width: number, colour: string): boolean
 
     /**
      * Move an element within it's scene.
@@ -394,7 +394,7 @@ export interface TK {
      * @param animMS indicates the duration of the corresponding animation in MS.
      * A zero-value indicates no animation.
      */
-    elemPosition(scene: string, element: string, orientation: tkOrientation, x: number, y: number, animMS: number): boolean
+    function elemPosition(scene: string, element: string, orientation: tkOrientation, x: number, y: number, animMS: number): boolean
 
     /**
      * Set the text of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
@@ -407,7 +407,7 @@ export interface TK {
      * (append after existing text).
      * @param text Text to set
      */
-    elemText(scene: string, element: string, position: tkTextReplace, text: string): boolean
+    function elemText(scene: string, element: string, position: tkTextReplace, text: string): boolean
 
     /**
      * Set the text [colour](https://tasker.joaoapps.com/userguide/en/javascript.html#colour)
@@ -418,7 +418,7 @@ export interface TK {
      * @param element Element name
      * @param colour Text colour
      */
-    elemTextColour(scene: string, element: string, colour: string): boolean
+    function elemTextColour(scene: string, element: string, colour: string): boolean
 
     /**
      * Set the text size of the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element.
@@ -428,7 +428,7 @@ export interface TK {
      * @param element Element name
      * @param size Text size
      */
-    elemTextSize(scene: string, element: string, size: number): boolean
+    function elemTextSize(scene: string, element: string, size: number): boolean
 
     /**
      * Make the specified [scene](https://tasker.joaoapps.com/userguide/en/scenes.html) element
@@ -440,12 +440,12 @@ export interface TK {
      * @param visible Show or hide
      * @param animationTimeMS Animation length (ms)
      */
-    elemVisibility(scene: string, element: string, visible: boolean, animationTimeMS: number): boolean
+    function elemVisibility(scene: string, element: string, visible: boolean, animationTimeMS: number): boolean
 
     /**
      * Terminate the current call (if there is one).
      */
-    endCall(): boolean
+    function endCall(): boolean
 
     /**
      * Encrypt the specified file using the encryption parameters specified in `Menu / Prefs / Action`.
@@ -462,7 +462,7 @@ export interface TK {
      * will be overwritten several times with random bits if encryption is
      * successful.
      */
-    encryptFile(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
+    function encryptFile(path: string, keyName: string, rememberKey: string, shredOriginal: boolean): boolean
 
     /**
      * Show a dialog to enter the passphrase for the specified *keyName*.
@@ -477,7 +477,7 @@ export interface TK {
      * to use in place of the built-in scene.
      * @param timeoutSecs Time (seconds) to wait before ending
      */
-    enterKey(
+    function enterKey(
         title: string,
         keyName: string,
         showOverKeyguard: boolean,
@@ -499,30 +499,30 @@ export interface TK {
      *  * **alpha**: set pixel alpha (opposite of transparency) to *value*
      * @param value should be 1-254
      */
-    filterImage(mode: tkColourFilter, value: number): boolean
+    function filterImage(mode: tkColourFilter, value: number): boolean
 
     /**
      * Flip an image previously loaded into Tasker's image buffer via loadImage()
      * @param horizontal If *horizontal* is false, the image is flipped vertically.
      */
-    flipImage(horizontal: boolean): boolean
+    function flipImage(horizontal: boolean): boolean
 
     /**
      * Stop execution of the JavaScript.
      */
-    exit(): void
+    function exit(): void
 
     /**
      * Flash a short-duration Android 'Toast' message.
      * @param message Message to display in toast
      */
-    flash(message: string): void
+    function flash(message: string): void
 
     /**
      * Flash a long-duration Android 'Toast' message.
      * @param message Message to display in toast
      */
-    flashLong(message: string): void
+    function flashLong(message: string): void
 
     /**
      * Try to get a fix of the current device location.
@@ -552,7 +552,7 @@ export interface TK {
      * next time the function is called.
      * @param timeoutSecs Timeout (seconds) for action
      */
-    getLocation(source: tkLocationMode, keepTracking: boolean, timeoutSecs: number): boolean
+    function getLocation(source: tkLocationMode, keepTracking: boolean, timeoutSecs: number): boolean
 
 
     /**
@@ -563,13 +563,13 @@ export interface TK {
      * **free** for 'free-form'.
      * @param timeout Timeout for action
      */
-    getVoice(prompt: string, languageModel: tkLanguageModel, timeout: number): string
+    function getVoice(prompt: string, languageModel: tkLanguageModel, timeout: number): string
 
     /**
      * Retrieve the value of a Tasker global variable. Prefixing the name with % is optional.
      * @param varName Global variable name
      */
-    global(varName: string): string
+    function global(varName: string): string
 
     /**
      * List all files in the specified *dirPath*.
@@ -580,7 +580,7 @@ export interface TK {
      * @param hiddenToo If **hiddenToo** is specified, files starting with
      * period are included, otherwise they are not.
      */
-    listFiles(dirPath: string, hiddenToo: boolean): string | undefined
+    function listFiles(dirPath: string, hiddenToo: boolean): string | undefined
 
     /**
      * Start up the named app.
@@ -591,7 +591,7 @@ export interface TK {
      * @param excludeFromRecents When *excludeFromRecents* is true, the app
      * will not appear in the home screen 'recent applications' list.
      */
-    loadApp(name: string, data: string, excludeFromRecents: boolean): boolean
+    function loadApp(name: string, data: string, excludeFromRecents: boolean): boolean
 
     /**
      * Load an image into Tasker's internal image buffer.
@@ -599,7 +599,7 @@ export interface TK {
      * See also [Load Image](https://tasker.joaoapps.com/userguide/en/help/ah_load_image.html) action.
      * @param uri Must start with `file://` followed by a local path
      */
-    loadImage(uri: string): boolean
+    function loadImage(uri: string): boolean
 
     /**
      * Show a lock screen, preventing user interaction with the covered part of
@@ -616,7 +616,7 @@ export interface TK {
      * @param layout the name of a user-created [scene](https://tasker.joaoapps.com/userguide/en/scenes.html)
      * to use in place of the built-in lock scene
      */
-    lock(
+    function lock(
         title: string,
         code: string,
         allowCancel: boolean,
@@ -634,20 +634,20 @@ export interface TK {
      * via a WebView scene element.
      * @param varName
      */
-    local(varName: string): string
+    function local(varName: string): string
 
     /**
      * Control media via simulation of hardware buttons.
      * @param action Possible *actions* are **next**, **pause**, **prev**,
      * **toggle**, **stop** or **play**.
      */
-    mediaControl(action: tkMediaAction): boolean
+    function mediaControl(action: tkMediaAction): boolean
 
     /**
      * Mute or unmute the device's microphone (if present),
      * @param shouldMute Should the microphone be muted
      */
-    micMute(shouldMute: boolean): boolean
+    function micMute(shouldMute: boolean): boolean
 
     /**
      * Enable or disable the system Mobile Data setting.
@@ -655,16 +655,16 @@ export interface TK {
      * See also: action [Mobile Data](https://tasker.joaoapps.com/userguide/en/help/ah_mobile_data_direct.html)
      * @param set Enable or disable
      */
-    mobileData(set: boolean): boolean
+    function mobileData(set: boolean): boolean
 
     /**
      * Skip back by *seconds* during playback of a music file previously started
      * by musicPlay.
      *
-     * See also: musicSkip, musicStop
+     * See also: {@link musicSkip}, {@link musicStop}
      * @param seconds Seconds to skip back
      */
-    musicBack(seconds: number): boolean
+    function musicBack(seconds: number): boolean
 
     /**
      * Play a music file via Tasker's internal music player.
@@ -674,36 +674,36 @@ export interface TK {
      * The last 3 arguments may be ommitted, in which case they default to **0**,
      * **false** and **media** respectively.
      *
-     * See also: musicStop, musicBack, musicSkip
+     * See also: {@link musicStop}, {@link musicBack}, {@link musicSkip}
      * @param path Path to music file
      * @param offsetSecs Seconds from beginning of file
      * @param loop Should audio loop
      * @param stream which [audio stream](https://tasker.joaoapps.com/userguide/en/javascript.html#streams)
      * the music should be played
      */
-    musicPlay(path: string, offsetSecs?: number, loop?: boolean, stream?: tkAudioStream): boolean
+    function musicPlay(path: string, offsetSecs?: number, loop?: boolean, stream?: tkAudioStream): boolean
 
     /**
      * Skip forwards by seconds during playback of a music file previously
      * started by musicPlay.
      *
-     * See also: musicBack, musicStop
+     * See also: {@link musicBack}, {@link musicStop}
      * @param seconds Seconds to skip forward
      */
-    musicSkip(seconds: number): boolean
+    function musicSkip(seconds: number): boolean
 
     /**
      * Stop playback of a music file previously started by musicPlay.
      *
-     * See also: musicBack, musicSkip
+     * See also: {@link musicBack}, {@link musicSkip}
      */
-    musicStop(): boolean
+    function musicStop(): boolean
 
     /**
      * Turn on or off Android Night Mode.
      * @param onFlag On or off
      */
-    nightMode(onFlag: boolean): boolean
+    function nightMode(onFlag: boolean): boolean
 
     /**
      * Show a popup dialog. The JavaScript waits until the popup has been
@@ -716,7 +716,7 @@ export interface TK {
      * to use in place of the built-in popup scene.
      * @param timeoutSecs Time (seconds) to wait before ending
      */
-    popup(
+    function popup(
         title: string,
         text: string,
         showOverKeyguard: boolean,
@@ -734,7 +734,7 @@ export interface TK {
      * @param parameterOne Parameter for task
      * @param parameterTwo Parameter for task
      */
-    performTask(taskName: string, priority: number, parameterOne: string, parameterTwo: string): boolean
+    function performTask(taskName: string, priority: number, parameterOne: string, parameterTwo: string): boolean
 
     /**
      * Whether the named Tasker profile is currently active.
@@ -742,44 +742,44 @@ export interface TK {
      * Returns false if the profile name is unknown.
      * @param profileName Profile name
      */
-    profileActive(profileName: string): boolean
+    function profileActive(profileName: string): boolean
 
     /**
      * Enable or disable the Android Notification Pulse system setting.
      * @param onFlag Enable or disable
      */
-    pulse(onFlag: boolean): boolean
+    function pulse(onFlag: boolean): boolean
 
     /**
      * Read the contents of a text file.
      * @param path File to read
      */
-    readFile(path: string): string
+    function readFile(path: string): string
 
     /**
      * Reboot the device.
      *
      * Requires a rooted device.
      *
-     * See also: function shutdown
+     * See also: function {@link shutdown}
      * @param type one of **normal**, **recovery** or **bootloader**.
      * It can be ommitted and defaults to **normal**.
      */
-    reboot(type?: tkRebootMode): boolean
+    function reboot(type?: tkRebootMode): boolean
 
     /**
      * Scale the current image in Tasker's image buffer to the specified dimensions.
      * @param width Width of image
      * @param height Height of image
      */
-    resizeImage(width: number, height: number): boolean
+    function resizeImage(width: number, height: number): boolean
 
     /**
      * Rotate the current image in Tasker's image buffer.
      * @param dir must be one of **left** or **right**.
      * @param degrees must be one of **45**, **90**, **135** or **180**.
      */
-    rotateImage(dir: tkRotationDirection, degrees: tkRotationDegrees): boolean
+    function rotateImage(dir: tkRotationDirection, degrees: tkRotationDegrees): boolean
 
     /**
      * Save the current image in Tasker's image buffer to the specified file path.
@@ -789,7 +789,7 @@ export interface TK {
      * @param qualityPercent
      * @param deleteFromMemoryAfter
      */
-    saveImage(path: string, qualityPercent: number, deleteFromMemoryAfter: boolean): boolean
+    function saveImage(path: string, qualityPercent: number, deleteFromMemoryAfter: boolean): boolean
 
     /**
      * Cause the device to say *text* out loud.
@@ -805,7 +805,7 @@ export interface TK {
      * @param pitch 1-10
      * @param speed 1-10
      */
-    say(
+    function say(
         text: string,
         enginge: string | undefined,
         voice: string | undefined,
@@ -832,7 +832,7 @@ export interface TK {
      * @param mimeType Intent mime type
      * @param extras extra data to pass, in the format key:value. May be undefined. Maximum length 2.
      */
-    sendIntent(
+    function sendIntent(
         action: tkIntentAction,
         targetComp: string,
         package: string,
@@ -851,7 +851,7 @@ export interface TK {
      * @param text SMS body
      * @param storeInMessagingApp Show text message in messaging app
      */
-    sendSMS(number: string, text: string, storeInMessagingApp: boolean): boolean
+    function sendSMS(number: string, text: string, storeInMessagingApp: boolean): boolean
 
     /**
      * Enable or disable Airplane Mode.
@@ -861,10 +861,10 @@ export interface TK {
      * var enabled = global( 'AIR' );
      * ```
      *
-     * See also: function setAirplaneRadios
+     * See also: function {@link setAirplaneRadios}
      * @param setOn On or off
      */
-    setAirplaneMode(setOn: boolean): boolean
+    function setAirplaneMode(setOn: boolean): boolean
 
     /**
      * Specify the radios which will be **disabled** when the device enters Airplane Mode.
@@ -874,11 +874,11 @@ export interface TK {
      * var radios = global( 'AIRR' );
      * ```
      *
-     * See also: function setAirplaneMode
+     * See also: function {@link setAirplaneMode}
      * @param disableRadios a comma-separated list with radio names from the
      * following set: **cell**, **nfc**, **wifi**, **wimax**, **bt**.
      */
-    setAirplaneRadios(disableRadios: string): boolean
+    function setAirplaneRadios(disableRadios: string): boolean
 
     /**
      * Create an alarm in the default alarm clock app.
@@ -889,13 +889,13 @@ export interface TK {
      * @param message Alarm message (optional)
      * @param confirmFlag specifies whether the app should confirm that the alarm has been set.
      */
-    setAlarm(hour: number, min: number, message: string, confirmFlag: boolean): boolean
+    function setAlarm(hour: number, min: number, message: string, confirmFlag: boolean): boolean
 
     /**
      * Enable or disable the global auto-sync setting.
      * @param setOn On or off
      */
-    setAutoSync(setOn: boolean): boolean
+    function setAutoSync(setOn: boolean): boolean
 
     /**
      * Force the system to scan the external storage card for new/deleted media.
@@ -903,7 +903,7 @@ export interface TK {
      * See also: action [Scan Card](https://tasker.joaoapps.com/userguide/en/help/ah_scan_card.html)
      * @param path If *path* is defined, only that will be scanned.
      */
-    scanCard(path?: string): boolean
+    function scanCard(path?: string): boolean
 
     /**
      * Enable or disable the Bluetooth radio (if present).
@@ -913,13 +913,13 @@ export interface TK {
      * ```
      * @param setOn On or off
      */
-    setBT(setOn: boolean): boolean
+    function setBT(setOn: boolean): boolean
 
     /**
      * Set the bluetooth adapter ID (the name as seen by other devices).
      * @param toSet ID to set
      */
-    setBTID(toSet: string): boolean
+    function setBTID(toSet: string): boolean
 
     /**
      * Set the value of a Tasker global user variable. Prefixing varName with % is optional.
@@ -928,7 +928,7 @@ export interface TK {
      * @param varName Global variable name
      * @param newValue New value of variable
      */
-    setGlobal(varName: string, newValue: string): void
+    function setGlobal(varName: string, newValue: string): void
 
     /**
      * Set the passphrase for the specified keyName.
@@ -938,7 +938,7 @@ export interface TK {
      * @param keyName Key name to set
      * @param passphrase Passphrase for key
      */
-    setKey(keyName: string, passphrase: string): boolean
+    function setKey(keyName: string, passphrase: string): boolean
 
     /**
      * Set the value of a Tasker **scene-local** user variable. Variable names
@@ -949,7 +949,7 @@ export interface TK {
      * @param varName Local variable name
      * @param newValue New value of variable
      */
-    setLocal(varName: string, newValue: string): void
+    function setLocal(varName: string, newValue: string): void
 
     /**
      * Set the global system clipboard.
@@ -961,7 +961,7 @@ export interface TK {
      * @param text Clipboard text
      * @param appendFlag Should text be appended to current clipboard
      */
-    setClip(text: string, appendFlag: boolean): boolean
+    function setClip(text: string, appendFlag: boolean): boolean
 
     /**
      * Show an Android System Settings screen.
@@ -973,13 +973,13 @@ export interface TK {
      * **quicklaunch**, **security**, **mobiledata**, **search**, **sound**,
      * **sync**, **wifi**, **wifiip** or **wireless**.
      */
-    settings(screenName: tkSettingsScreen): boolean
+    function settings(screenName: tkSettingsScreen): boolean
 
     /**
      * Set the system home screen wallpaper.
      * @param path Path to image file
      */
-    setWallpaper(path: string): boolean
+    function setWallpaper(path: string): boolean
 
     /**
      *  Enable or disable the Wifi radio (if present).
@@ -990,7 +990,7 @@ export interface TK {
      * ```
      * @param setOn On or off
      */
-    setWifi(setOn: boolean): boolean
+    function setWifi(setOn: boolean): boolean
 
     /**
      * Run the shell command *command*.
@@ -1001,7 +1001,7 @@ export interface TK {
      * @param asRoot Will only have effect if device is rooted.
      * @param timeoutSecs Time (seconds) to wait for task
      */
-    shell(command: string, asRoot: boolean, timeoutSecs: number): string
+    function shell(command: string, asRoot: boolean, timeoutSecs: number): string
 
     /**
      * Show the named scene, creating it first if necessary.
@@ -1012,7 +1012,7 @@ export interface TK {
      * @param showExitIcon display a small icon in the bottom right which destroys the scene when pressed
      * @param waitForExit whether to wait for the scene to exit before continuing the script
      */
-    showScene(
+    function showScene(
         name: string,
         displayAs: tkDisplayAs,
         hoffset: number,
@@ -1026,72 +1026,72 @@ export interface TK {
      *
      * Requires a rooted device.
      *
-     * See also: reboot
+     * See also: {@link reboot}
      */
-    shutdown(): boolean
+    function shutdown(): boolean
 
     /**
      *
      * @param mode
      */
-    silentMode(mode: tkSilentMode): boolean
+    function silentMode(mode: tkSilentMode): boolean
 
     /**
      * Run a previously created [SL4A](https://code.google.com/p/android-scripting/) script.
      * @param scriptName Script name
      * @param inTerminal Open script in terminal
      */
-    sl4a(scriptName: string, inTerminal: boolean): boolean
+    function sl4a(scriptName: string, inTerminal: boolean): boolean
 
     /**
      * Setting the system *Sound Effects* setting (sound from clicking on buttons etc.
      * @param setTo On or off
      */
-    soundEffects(setTo: boolean): boolean
+    function soundEffects(setTo: boolean): boolean
 
     /**
      * Enable or disable the speakerphone function.
      * @param setFlag Enable or disable
      */
-    speakerPhone(setFlag: boolean): boolean
+    function speakerPhone(setFlag: boolean): boolean
 
     /**
      * Expand or contract the system status bar.
      * @param expanded **true** to expand
      */
-    statusBar(expanded: boolean): boolean
+    function statusBar(expanded: boolean): boolean
 
     /**
      * Specify whether the device should remain on when power is connected.
      * @param mode Possible modes are **never**, **ac**, **usb**, **any**.
      */
-    stayOn(mode: tkStayOnMode): boolean
+    function stayOn(mode: tkStayOnMode): boolean
 
     /**
      * Stop tracking a location provider. This is only relevant when a
      * getLocation function has been previously called with the keepTracking
      * parameter set.
      */
-    stopLocation(): boolean
+    function stopLocation(): boolean
 
     /**
      * Turn off the display and activate the keyguard.
      *
      * Requires Tasker's Device Administrator to be enabled in Android settings.
      */
-    systemLock(): boolean
+    function systemLock(): boolean
 
     /**
      * Whether the named Tasker task is currently running. Returns false if the
      * task name is unknown.
      * @param taskName Task name to check
      */
-    taskRunning(taskName: string): boolean
+    function taskRunning(taskName: string): boolean
 
     /**
      * Auto-accept an incoming call (if there is one).
      */
-    takeCall(): boolean
+    function takeCall(): boolean
 
     /**
      * Take a photo with the builtin camera.
@@ -1103,7 +1103,7 @@ export interface TK {
      * @param insertGallery whether to insert the resulting picture in the
      * Android Gallery application
      */
-    takePhoto(camera: tkCamera, fileName: string, resolution: string, insertGallery: boolean): boolean
+    function takePhoto(camera: tkCamera, fileName: string, resolution: string, insertGallery: boolean): boolean
 
     /**
      * Simulate keyboard typing.
@@ -1112,7 +1112,7 @@ export interface TK {
      * @param text Text to type
      * @param repeatCount How many times to repeat typing
      */
-    type(text: string, repeatCount: number): boolean
+    function type(text: string, repeatCount: number): boolean
 
     /**
      * Unpack a Zip archive into the parent directory of the archive.
@@ -1120,7 +1120,7 @@ export interface TK {
      * @param deleteZipAfter If set, causes the zip archive to be deleted after
      * successful unpacking.
      */
-    unzip(zipPath: string, deleteZipAfter: boolean): boolean
+    function unzip(zipPath: string, deleteZipAfter: boolean): boolean
 
     /**
      * Enable or disable USB tethering.
@@ -1128,13 +1128,13 @@ export interface TK {
      * See also: action [USB Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_usb.html)
      * @param set Enable or disable
      */
-    usbTether(set: boolean): void
+    function usbTether(set: boolean): void
 
     /**
      * Cause the device to vibrate for the specified time.
      * @param durationMilliseconds Length of vibration
      */
-    vibrate(durationMilliseconds: number): void
+    function vibrate(durationMilliseconds: number): void
 
     /**
      * Cause the device to vibrate following the specified *pattern*
@@ -1145,7 +1145,7 @@ export interface TK {
      * ```
      * wait for 500ms, vibrates 1000ms, wait for 750ms, then vibrate for 1000ms.
      * */
-    vibratePattern(pattern: string): void
+    function vibratePattern(pattern: string): void
 
     /**
      * Pause the script for the specified time.
@@ -1154,7 +1154,7 @@ export interface TK {
      * situations. If in doubt, use JavaScript setTimeout() instead.
      * @param durationMilliseconds Length to wait
      */
-    wait(durationMilliseconds: number): void
+    function wait(durationMilliseconds: number): void
 
     /**
      * Enable or disable Wifi tethering.
@@ -1162,7 +1162,7 @@ export interface TK {
      * See also: action [Wifi Tether](https://tasker.joaoapps.com/userguide/en/help/ah_tether_wifi.html)
      * @param set Enable or disable
      */
-    wifiTether(set: boolean): boolean
+    function wifiTether(set: boolean): boolean
 
     /**
      * Write *text* to *file* path.
@@ -1171,7 +1171,7 @@ export interface TK {
      * @param append If *append* is specified, the text will be attached to the
      * end of the existing file contents (if there are any).
      */
-    writeFile(path: string, text: string, append: boolean): boolean
+    function writeFile(path: string, text: string, append: boolean): boolean
 
     /**
      * Zip a file or directory.
@@ -1181,8 +1181,5 @@ export interface TK {
      * @param deleteOriginalAfter If *deleteOriginalAfter* is **true**, causes
      * *path* to be deleted if the zip operation is successful.
      */
-    zip(path: string, level: number, deleteOriginalAfter: boolean): boolean
+    function zip(path: string, level: number, deleteOriginalAfter: boolean): boolean
 }
-
-// Associate tk var with TK interface defined above
-export declare const tk: TK;
