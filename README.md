@@ -51,7 +51,7 @@ To include a type in a script, you can use either a [triple slash directive](htt
 
 This will import the type definitions, but won't actually *import* the module. Since nothing is actually being imported, the script will not be treated as a module, allowing the output from `tsc` to be used directly in Tasker. (Provided you don't have any other imports)
 
-```
+```js
 /// <reference types="tasker-types" />
 ```
 
@@ -59,6 +59,6 @@ This will import the type definitions, but won't actually *import* the module. S
 
 This will import the type definitions, but won't actually import the module. Unlike the triple slash directive, the script will still be treated as a module. The output from `tsc` can't be used directly in Tasker without modification. However, it will work if you're using a bundler (such as `webpack`).
 
-```
+```js
 import type {} from "tasker-types";
 ```
