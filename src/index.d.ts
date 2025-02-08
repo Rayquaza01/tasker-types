@@ -572,6 +572,24 @@ interface TK {
     global(varName: string): string
 
     /**
+     * Go to the Android home screen. *screenNum* is not supported by all home screens.
+     * @param screenNum Home screen page to go to
+     */
+    goHome(screenNum: number): void
+
+    /**
+     * Enable/disable system setting Haptic Feedback.
+     * @param onFlag Should haptics be enabled or disabled
+     */
+    haptics(onFlag: boolean): boolean
+
+    /**
+     * Hide the named scene if it's visible.
+     * @param sceneName The name of the scene to hide
+     */
+    hideScene(sceneName: string): boolean
+
+    /**
      * List all files in the specified *dirPath*.
      *
      * Returns a newline-separated list of subfiles.
@@ -1237,6 +1255,9 @@ declare global {
     const getLocation: TK["getLocation"];
     const getVoice: TK["getVoice"];
     const global: TK["global"];
+    const goHome: TK["goHome"];
+    const haptics: TK["haptics"];
+    const hideScene: TK["hideScene"];
     const listFiles: TK["listFiles"];
     const loadApp: TK["loadApp"];
     const loadImage: TK["loadImage"];
@@ -1283,6 +1304,7 @@ declare global {
     const showScene: TK["showScene"];
     const shutdown: TK["shutdown"];
     const silentMode: TK["silentMode"];
+    const sl4a: TK["sl4a"];
     const soundEffects: TK["soundEffects"];
     const speakerPhone: TK["speakerPhone"];
     const statusBar: TK["statusBar"];
